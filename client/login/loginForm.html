@@ -1,4 +1,4 @@
-<template name="estudiantes">
+<template name="loginForm">
 <header>
         <div class="container">
             <div class="row">
@@ -39,8 +39,9 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a class="menu-top-active" href="/">Inicio</a></li>
                             <li><a href="index.html">Administrador</a></li>
-                            <li><a href="estudiantes">Estudiantes</a></li>
+                            <li><a href="loginForm">Estudiantes</a></li>
                             <li><a href="table.html">Facilitadores</a></li>
+        
                         </ul>
                     </div>
                 </div>
@@ -49,19 +50,21 @@
         </div>
     </section>
     <!-- MENU SECTION END-->
+
+<table width="100%">
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+
                     <h4 class="page-head-line">Inicie sesion para ingresar</h4>
 
                 </div>
-
             </div>
+<td width="50%">
+            <form action="" method="POST">
+
             <div class="row">
-
-
-
                 <div class="col-md-6">
                    <h4> Registrate desde facebook <strong> / </strong>Google :</h4>
                     <br />
@@ -73,18 +76,25 @@
                     <hr />
                      <h4> Use su cuenta  <strong>(Estudiante, Facilitador o Administrador):</strong></h4>
                     <br />
+
                      <label>Correo Electronico : </label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" name="email" id="" placeholder="Email"/>
+
                         <label>Contraseña :  </label>
-                        <input type="password" class="form-control" />
+                        <input type="password" class="form-control" name="password" id="" placeholder="Password" />
+                        
                         <hr />
-                        <a href="mainpage.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Ingresar </a>&nbsp;<br>
-                        No tienes cuenta?<a href="registerform">  Cree una.</a>
+
+                        <a href="mainpage" class="btn btn-info" ><span class="glyphicon glyphicon-user"></span> &nbsp;Ingresar </a>&nbsp;<br>
+                        No tienes cuenta?<a href="registerform" >  Cree una.</a>
                 </div>
 
+              </div>
 
-
+            </form>      
+</td>
                 <div class="col-md-6">
+                  <td width="50%">
                     <div class="alert alert-info">
                         This is a free bootstrap admin template with basic pages you need to craft your project. 
                         Use this template for free to use for personal and commercial use.
@@ -124,11 +134,12 @@
                         </ul>
                        
                     </div>
+                  </td>
                 </div>
 
             </div>
         </div>
-    </div>
+    </table>
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">
@@ -140,4 +151,5 @@
             </div>
         </div>
     </footer>
+
 </template>

@@ -1,4 +1,5 @@
-<template name="form">
+<template name="registerForm">
+
 <header>
         <div class="container">
             <div class="row">
@@ -68,10 +69,11 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="main">Inicio</a></li>
+                            <li><a class="menu-top-active" href="/">Inicio</a></li>
                             <li><a href="index.html">Administrador</a></li>
                             <li><a href="estudiantes">Estudiantes</a></li>
                             <li><a href="table.html">Facilitadores</a></li>
+                       
 
                         </ul>
                     </div>
@@ -88,6 +90,7 @@
                         <h1 class="page-head-line">Formulario </h1>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel panel-default">
@@ -99,20 +102,27 @@
  <div class="col-md-12">
                         <div class="panel panel-default">
                         <div class="panel-heading">
-        <form>
+        <form action="" method="POST">
           <div class="form-group">
             <label>Nombre de usuario</label>
             <input type="text" class="form-control" name="username" placeholder="username">
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" class="form-control" name="lastname" placeholder="lastname">
+            
           </div>
           <div class="form-group">
             <label>Email</label>
             <input type="text" class="form-control" name="email" placeholder="email">
           </div>
           <div class="form-group">
-            <label>apellidos</label>
-            <input type="text" class="form-control" name="lastname" placeholder="lastname">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" placeholder="password">
           </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+
+          <button type="submit" id="return" class="btn btn-primary">Enviar</button>
+          
         </form>
       </div>
       <div class="col -lg-8">
@@ -141,10 +151,4 @@
             </div>
         </div>
     </footer>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
 </template>
