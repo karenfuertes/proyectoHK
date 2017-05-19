@@ -29,15 +29,14 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="mainpage">Inicio</a></li>
-                            <li><a href="index.html">Administrador</a></li>
-                            <li><a href="loginForm">Estudiantes</a></li>
-                            <li><a href="table.html">Facilitadores</a></li>
+                            <li><a class="menu-top-active" href="/">Inicio</a></li>
+                            <li><a href="acerca_de">Acerca de</a></li>
                             {{#if currentUser}}
           <li><a href="#" id="logout">Loggout {{username}}</a></li>
         {{else}}
-          <li><a href="#" id="login">Login</a></li>  
+          <li><a href="loginForm" id="login">Iniciar Sesion</a></li>  
         {{/if}}
+
 
 
                         </ul>

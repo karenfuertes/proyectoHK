@@ -30,4 +30,4 @@ Template.registerForm.events({
 			});
 		}
 
-})
+});

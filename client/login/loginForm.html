@@ -38,10 +38,13 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a class="menu-top-active" href="/">Inicio</a></li>
-                            <li><a href="index.html">Administrador</a></li>
-                            <li><a href="loginForm">Estudiantes</a></li>
-                            <li><a href="table.html">Facilitadores</a></li>
-        
+                            <li><a href="acerca_de">Acerca de</a></li>
+                            {{#if currentUser}}
+          <li><a href="#" id="logout">Loggout {{username}}</a></li>
+        {{else}}
+          <li><a href="loginForm" id="login">Iniciar Sesion</a></li>  
+        {{/if}}
+
                         </ul>
                     </div>
                 </div>
@@ -85,7 +88,7 @@
                         
                         <hr />
 
-                        <a href="mainpage" class="btn btn-info" ><span class="glyphicon glyphicon-user"></span> &nbsp;Ingresar </a>&nbsp;<br>
+                        <a href="/" class="btn btn-info" ><span class="glyphicon glyphicon-user"></span> &nbsp;Ingresar </a>&nbsp;<br>
                         No tienes cuenta?<a href="registerform" >  Cree una.</a>
                 </div>
 

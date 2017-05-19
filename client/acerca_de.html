@@ -1,0 +1,168 @@
+<template name="acerca_de">
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>PROYECTO</title>
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+ <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Creado por: </strong>Humberto Ch. y Karen F.
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- HEADER END-->
+    
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                          <li><a class="menu-top-active" href="/">Inicio</a></li>
+                            <li><a href="acerca_de">Acerca de</a></li>
+                            {{#if currentUser}}
+          <li><a href="#" id="logout">Loggout {{username}}</a></li>
+        {{else}}
+          <li><a href="loginForm" id="login">Iniciar Sesion</a></li>  
+        {{/if}}
+
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">Acerca de</h4>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        TEnesta pagina aprenderas diversos para el diseño de paginas espero que les guste
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-two">
+                        
+                        <h5>CURSOS DE DISEÑO Y DESARROLLO </h5>Con el curso de Diseño Web explotarás al máximo toda tu creatividad usando softwares de producción web, programación y posicionamiento SEO.
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-three">
+                        
+                        <h5>CURSO DE HTML5</h5>Este curso le permitirá al participante aplicar conceptos y estándares de diseño, composición, diagramación y recursos gráficos desarrollando un proyecto web. Incluye desde el diseño de layouts hasta el montaje de un sitio web navegable, haciendo uso de las mejores técnicas, tecnologías y recursos multimedia.
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="dashboard-div-wrapper bk-clr-four">
+                         <h5>CURSOS DE NODEJS </h5>Aprende a desarrollar aplicaciones escalables y en tiempo real llevando a JavaScript al servidor con Node.js
+
+                    </div>
+                </div>
+
+            </div>
+           
+            <div class="row">
+                <div class="col-md-6">
+                      <div class="notice-board">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                           Active  Notice Panel 
+                                <div class="pull-right" >
+                                    <div class="dropdown">
+  <button class="btn btn-success dropdown-toggle btn-xs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <span class="glyphicon glyphicon-cog"></span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Refresh</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+  </ul>
+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel-footer">
+                                <a href="#" class="btn btn-default btn-block"> <i class="glyphicon glyphicon-repeat"></i> Just A Small Footer Button</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    
+                     
+                </div>
+
+                <div class="col-md-6">
+                    <div class="alert alert-danger">
+                        En aqui podras enviar tus quejas y recomendaciones para mejorar nuestro sitio ewb
+                    <hr />
+                     <div class="Compose-Message">               
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        NUEVO MENSAJE 
+                    </div>
+                    <div class="panel-body">
+                        
+                        <label>NOMBRE : </label>
+                        <input type="text" class="form-control" />
+                        <label>DESCRIPCION :  </label>
+                        <input type="text" class="form-control" />
+                        <label>MESAJE : </label>
+                        <textarea rows="9" class="form-control"></textarea>
+                        <hr />
+                        <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-envelope"></span> ENVIAR </a>&nbsp;
+                      <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-tags"></span>  GUARDAR </a>
+                    </div>
+                    <div class="panel-footer text-muted">
+                        <strong>Note : </strong>Please note that we track all messages so don't send any spams.
+                    </div>
+                </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    
+</template>
