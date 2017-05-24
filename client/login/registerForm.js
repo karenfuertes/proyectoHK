@@ -9,13 +9,17 @@ Template.registerForm.events({
 		$(".panelForm").css("opacity",0);
 	},
 	"submit form" : function(e){
+		e.preventDefault();
 		var user = {
 			"username" : e.target.username.value,
-			"lastname" : e.target.lastname.value,
 			"email" : e.target.email.value,
-			"password" : e.target.password.value
+			"password" : e.target.password.value,
+			"profile": {
+				lastname: e.target.lastname.value,
+			} 
 			
 			};
+			console.log(user);
 			/*
 			ESTE CODIGO PERTENCE AL SERVIDOR
 			*/
