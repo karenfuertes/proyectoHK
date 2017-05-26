@@ -67,6 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <li><a class="scroll hvr-bounce-to-bottom" href="#gallery">GALERIA</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="#team">DOCENTES</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="#contact">CONTACTOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="#banner">CHAT</a></li>
                                     </ul>
                                 </nav>
                             </div><!-- /navbar-collapse -->
@@ -501,7 +502,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <p><a href="mailto:info@example.com">info@example.com</a></p>
     </div>
 </div>
-<div class="contact-form">
+
+<div id="banner" >
+    {{>banner}}
+</div>
+<!--  BANNER-->
+
+<!--
+<div class="contact-form">a
     <div class="container">
         <form action="#" method="post">
             <div class="col-md-6 contact-left">
@@ -517,15 +525,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </form>
     </div>
 </div>
+-->
 <div class="footer text-center">
     <div class="container">
         <ul class="foo-nav">
-            <li><a class="scroll" href="#home">HOME</a></li>
-            <li><a class="scroll" href="#about">ABOUT</a></li>
-            <li><a class="scroll" href="#ban-bot">SERVICES</a></li>
-            <li><a class="scroll" href="#gallery">GALLERY</a></li>
-            <li><a class="scroll" href="#team">TEAM</a></li>
-            <li><a class="scroll" href="#contact">CONTACT</a></li>
+            <li><a class="scroll" href="#home">INICIO</a></li>
+            {{#if currentUser}}
+          <li><a class="scroll" href="/" id="logout">Loggout {{username}}</a></li>
+        {{else}}
+          <li><a  class="scroll" href="#logina" id="login">INICIAR SESION</a></li>  
+        {{/if}}
+            <li><a class="scroll" href="#about">MATERIAS</a></li>
+            <li><a class="scroll" href="#ban-bot">GALERIA</a></li>
+            <li><a class="scroll" href="#gallery">DOCENTES</a></li>
+            <li><a class="scroll" href="#team">CONTACTOS</a></li>
+            <li><a class="scroll" href="#contact">CHAT</a></li>
         </ul>
         <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 456 7890</p>
         <ul class="social-one">
@@ -538,7 +552,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <div class="copy-right">
     <div class="container">
-        <p>&copy; 2016 Pedagogy . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        <p>&copy; 2017 Pedagogy . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
     </div>
 </div>
 <!-- //map -->
