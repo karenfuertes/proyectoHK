@@ -1,33 +1,68 @@
 <template name="loginForm">
-
+<div id="home" class="banner1 w3l">
     <div class="container">
-        <h3 class="title">INICIE SESION PARA INGRESAR</h3>
-            <form action="" method="POST">
-
-            <div class="row">
-                <div class="col-md-6">
+            <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="#ban-bot">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="#contact">CONTACTOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="#logina" id="login">INICIAR SESION</a></li>  
+                                        {{/if}}
+                                    </ul>
+                                </nav>
+                            </div>
+                    
+                        <div  class="callbacks_container">
+                            <br>
+                            <br>
+                            <center>
+                            <form action="" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6">
                    
-                     <h4> Use su cuenta  <strong>(Estudiante, Facilitador o Administrador):</strong></h4>
-                    <br />
+                                        <h4> <strong>INGRESE SU CUENTA</strong></h4>
+                                        <br />
 
-                     <label>Correo Electronico : </label>
-                        <input type="text" class="form-control" name="email" placeholder="Email"/>
-
-                        <label>Contraseña :  </label>
-                        <input type="password" class="form-control" name="password" placeholder="Password" />
+                                        <label>Correo Electronico : </label>
+                                        <input type="text" class="form-control" name="email" placeholder="Email"/>
+                                        <label>Contraseña :  </label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" />
                         
-                        <hr />
+                                        <hr />
 
-                        <button class="btn btn-success" type="submit">Login</button>&nbsp;<br>
-                        No tienes cuenta?<a href="#registerform" >  Cree una.</a>
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoggin();">
-</fb:login-button>
-                </div>
+                                        <button class="btn btn-success" type="submit">Login</button>&nbsp;<br>
+                                        No tienes cuenta?<a href="#registerform" >  Cree una.</a>
+                                        <fb:login-button scope="public_profile,email" onlogin="checkLoggin();">
+                                        </fb:login-button>
+                                    </div>
 
-              </div>
-
-            </form> 
+                                </div>
+                            </form>
+                            </center>
+                        </div>       
+            </nav>
     </div>
-
-   
+      
+</div>
 </template>
+

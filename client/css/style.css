@@ -80,6 +80,16 @@ background-size:cover;
 min-height: 720px;
 }
 
+.banner1{
+background: url(../images/z1.jpg) no-repeat 0px 0px;
+background-size:cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+-ms-background-size: cover;
+-moz-background-size: cover;
+min-height: 720px;
+}
+
 /* Bounce To Bottom */
 .hvr-bounce-to-bottom {
   display: inline-block;

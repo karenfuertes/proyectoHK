@@ -1,0 +1,52 @@
+<template name="curso">
+  {{>banner}}
+  {{>Template.dynamic template=mainmenu}}
+    <div class="container">
+        <div class="row">         
+            {{#each listCursos}}
+                  {{> mostrarcurso}}
+            {{/each}}
+            
+      </div>
+    </div>
+    {{>footer}}
+</template>
+
+<template name="mostrarcurso">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box">
+                <div id="cursos" class="box-icon">
+                    <span><img class="foto" src="/image/php.jpg"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">{{this.nombre}}</h4>
+                    <div class="rectangle_hidden">
+                        <div class="container_curso"> 
+                            <p> {{this.detalle}}</p>
+                        </div>
+                    </div>
+                    {{#if currentUser}}
+                        {{#if isInRole 'facilitador' 'facilitador'}}
+                           <a data-target="modal1" class="btn">Modal</a>
+                             <button id="eliminarcurso" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button>
+                        {{else}}      
+                            <button type="button" class="btn btn-info" style="margin-top: 9px;">Tomar este curso</button>
+                        {{/if}}
+                     {{/if}}
+                </div>
+            </div>
+    </div>
+    {{>modall}}
+
+</template>
+<template name="modall">
+    <div id="peexa-modal" class="modal">
+      <div class="modal-content">
+        <h4>Materialize Modal</h4>
+        <p>Your html elements. You can use any elements here as per your requirements.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close btn-flat">Close This</a>
+    </div>
+</div>
+</template>
