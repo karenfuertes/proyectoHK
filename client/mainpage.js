@@ -9,6 +9,15 @@ Template.mainpage.helpers({
 	}
 })
 
+Template.mainpage.helpers({
+	facebook: function(){
+		return BUTTONFACEBOOK.get();
+	},
+	username : function(){
+		return Accounts.user().username;
+	}
+})
+
 Template.mainpage.events({
 	"click #login" : function(){
 		$(".panelForm").css("opacity",1);
