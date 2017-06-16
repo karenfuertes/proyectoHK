@@ -1,5 +1,4 @@
-<template name="registerForm">
-
+<template name="usuarios">
 <div id="home" class="banner1 w3l">
     <div class="container">
             <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
@@ -22,13 +21,13 @@
                                  
                                     <ul class="nav navbar-nav ">
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li>
                                         {{#if currentUser}}
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios" id="logout">{{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         {{else}}
-                                        <li><a  class="scroll hvr-bounce-to-bottom " href="loginForm" id="login">INICIAR SESION</a></li>  
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>  
                                         {{/if}}
                                     </ul>
                                 </nav>
@@ -39,7 +38,7 @@
                           <br>
                           <br>
                           <br>
-                              <h1 class="page-head-line">Formulario </h1>
+                              <h1 class="page-head-line">{{username}} </h1>
                               </div>
                             </div>
 
@@ -52,26 +51,23 @@
                           <div class="panel panel-default">
                           <div class="panel-heading">
                             <form action="" method="POST">
-                            <div class="form-group">
-                              <label>Nombre de usuario</label>
-                              <input type="text" class="form-control" name="username" placeholder="username">
+                              <div class="form-group">
+                              <label>Nombre de usuario :</label>{{username}}
+                              
                             </div>
                             <div class="form-group">
-                              <label>Apellidos</label>
-                              <input type="text" class="form-control" name="lastname" placeholder="lastname">
+                              <label>Apellidos :</label> {{lastname}}
+                             
             
                             </div>
                             <div class="form-group">
-                              <label>Email</label>
-                              <input type="text" class="form-control" name="email" placeholder="email">
+                              <label>Email :</label> {{email}}
+                             
                             </div>
-                            <div class="form-group">
-                              <label>Password</label>
-                              <input type="password" class="form-control" name="password" placeholder="password">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-          
+                         
+                            <button type="button" class="btn btn-primary" id="guardar">Modificar</button>
+                                <button type="button" class="btn btn-primary" id="cancelar">Eliminar</button>
+        
                             </form>
                           </div>
                           <div class="col -lg-8">
@@ -90,6 +86,4 @@
     </div>
       
 </div>
-    <!-- MENU SECTION END-->
-    <!-- CONTENT-WRAPPER SECTION END-->
 </template>

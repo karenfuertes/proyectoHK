@@ -1,0 +1,63 @@
+<template name="listface">
+	<div id="home" class="banner w3l">
+    <div class="container">
+        <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="#ban-bot">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="#contact">CONTACTOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="#logina" id="login">INICIAR SESION</a></li>  
+                                        {{/if}}
+                                    </ul>
+                                                        </nav>
+                 </div><!-- /navbar-collapse -->
+        </nav>
+         <div style="text-align: center;">
+        <h1>Formadores y expertos de JsonFree</h1>
+    <p>Estamos continuamente buscando nuevos formadores y expertos para ampliar nuestro equipo. Si quieres ponerte en contacto con nosotros, envíanos por favor un email.</p>
+        
+    </div>
+    <div id="listfaci" class="container">       
+        {{#each listfacilitadores}}
+            <div  class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="info">
+                    <div id="ImagenList" >
+                        <img src="/image/usu1.png">
+                        <p>Nombre: {{profile.nombre}} <br />
+                        Apellido: {{profile.apellido}}<br />
+                        Educacion: {{profile.carrera}}
+                        </p>
+                     </div>
+            </div>
+        </div>
+    </div>
+        {{/each}}
+     </div>
+    {{>footer}} 
+
+    </div>
+</div>
+   
+</template>
+

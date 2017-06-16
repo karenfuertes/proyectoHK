@@ -20,13 +20,13 @@
                                 <nav class="cl-effect-1">
                                     <ul class="nav navbar-nav ">
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="#ban-bot">CURSOS</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="#contact">CONTACTOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios" id="logout">{{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         {{else}}
-                                        <li><a  class="scroll hvr-bounce-to-bottom " href="#logina" id="login">INICIAR SESION</a></li>  
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>  
                                         {{/if}}
                                     </ul>
                                 </nav>
@@ -35,6 +35,7 @@
                         <div  class="callbacks_container">
                             <br>
                             <br>
+                    
                             <center>
                             <form action="" method="POST">
                                 <div class="row">
@@ -43,15 +44,17 @@
                                         <h4> <strong>INGRESE SU CUENTA</strong></h4>
                                         <br />
 
-                                        <label>Correo Electronico : </label>
+                                        <label><strong>Correo Electronico :</strong> </label>
                                         <input type="text" class="form-control" name="email" placeholder="Email"/>
-                                        <label>Contraseña :  </label>
+                                        <label><strong>Contraseña :  </strong></label>
                                         <input type="password" class="form-control" name="password" placeholder="Password" />
                         
                                         <hr />
 
                                         <button class="btn btn-success" type="submit">Login</button>&nbsp;<br>
-                                        No tienes cuenta?<a href="#registerform" >  Cree una.</a>
+                                        No tienes cuenta?<a href="/registerform" >  Cree una.</a>
+                                        <br>
+                                        <h3>INGRESE CON SU CUENTA DE FACEBOOK</h3>
                                         <fb:login-button scope="public_profile,email" onlogin="checkLoggin();">
                                         </fb:login-button>
                                     </div>

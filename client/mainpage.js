@@ -7,7 +7,7 @@ Template.mainpage.helpers({
 	username : function(){
 		return Accounts.user().username;
 	}
-})
+});
 
 Template.mainpage.helpers({
 	facebook: function(){
@@ -16,7 +16,7 @@ Template.mainpage.helpers({
 	username : function(){
 		return Accounts.user().username;
 	}
-})
+});
 
 Template.mainpage.events({
 	"click #login" : function(){
@@ -25,4 +25,4 @@ Template.mainpage.events({
 	"click #logout" : function(){
 		Meteor.logout();
 	}
-})
+});

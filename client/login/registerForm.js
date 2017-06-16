@@ -3,7 +3,7 @@ Template.registerForm.onRendered(function(){
 });
 Template.registerForm.events({
 	"click #return" : function(){
-		myTemplates.set("loginForm");
+		myTemplates.set("/");
 	},
 	"click #close" : function(){
 		$(".panelForm").css("opacity",0);

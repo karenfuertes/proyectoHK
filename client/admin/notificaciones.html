@@ -1,0 +1,37 @@
+<template name="notificaciones">
+	{{>banner}} 
+	{{>Template.dynamic template=mainmenu}}
+	
+
+
+	<div class="container">
+    <div class="row">
+        <div class="col m10 offset-m1 s12">
+            <h2 class="center-align">Introdusca un Curso</h2>
+            <div class="row">
+                <form class="col s10">
+                    <div class="row">
+	                     <div class="input-field col s12">
+	                        <label for="nombre">Nombre del Curso</label>
+	                        <input type="text" name="nombre">
+	                    </div>
+	                 </div>
+	                <div class="row">
+	                     <div class="input-field col s12">
+	                        <label for="detalle">Detalle</label>
+	                        <input type="text" name="detalle">
+	                    </div>
+	                 </div>
+	                    <div class="row">
+	                        <div class="col m12 center-align">
+	                          <button class="btn waves-effect waves-light" type="submit">Enviar
+							  </button>
+	                        </div>
+	                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</template>
