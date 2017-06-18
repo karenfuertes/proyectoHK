@@ -1,9 +1,3 @@
-Template.Usuarios.helpers({
-  username : function(){
-    return Accounts.user().username;
-  }
-});
-
 
 Template.usuarios.events({
   "click #login" : function(){
@@ -30,18 +24,3 @@ Template.usuarios.helpers({
 });
 
 
-Template.usuarios.events({
-  "click #editar":function(e){
-
-       document.getElementById("guardar").disabled = false;
-      document.getElementById("cancelar").disabled = false;
-       document.getElementById("editar").disabled = true;
-
-
-  },
-  "click #guardar":function(e){
-      document.getElementById("guardar").disabled = true;
-      document.getElementById("editar").disabled = false;
-      document.getElementById("cancelar").disabled = true;
-  }
-});
