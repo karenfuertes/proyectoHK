@@ -2367,3 +2367,26 @@ ul.social-one li a:hover {
 		margin: 0 8px 7px;
 	}	
 }
+.chatform{
+  color:#000;
+}
+#client{
+  background-color:#fff;
+  color:#000;
+}
+.card-panel{
+  margin-top:0px;
+  margin-bottom:0px;
+}
+#users_list{
+  cursor: pointer;
+}
+.rectangle_hidden,.rectangle_hidden_client{
+  height: 400px;
+  width: 800px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+.rectangle_hidden_client{
+  width:100%;
+}
