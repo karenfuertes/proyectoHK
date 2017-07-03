@@ -1,7 +1,11 @@
 <template name="users">
-	<h1>{{users}}</h1>
-	<h1>{{users}}</h1>
-	<h1>{{users}}</h1>
-
-	<h1>{{users}}</h1>
+	<div id="users" class="container"> 
+	{{#each listusers}}
+            
+                        <p>Nombre: {{username}} <br />
+                        Apellido: {{profile.lastname}}<br />
+                      
+                        </p>
+        {{/each}}
+    </div>
 </template>

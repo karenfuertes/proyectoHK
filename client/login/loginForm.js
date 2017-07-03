@@ -83,9 +83,13 @@ Template.loginForm.events({
 		e.preventDefault();
 		$(".panelForm").css("opacity",0);
 	},
+  "click #index" : function(e){
+    myTemplates.set("/");
+  },
 	"submit form" : function(e){
 		//SERVIDOR
 		Meteor.loginWithPassword(e.target.email.value,e.target.password.value);
+    myTemplates.set("/");
 		$(".panelForm").css("opacity",0);
 		return false;
 	}

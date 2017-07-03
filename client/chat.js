@@ -7,7 +7,7 @@ Template.chat.events({
 	}
 });
 
-Template.chat.helpers({
+Template.chat1.helpers({
 	chat: function(){
 		return CHAT.find();
 	}

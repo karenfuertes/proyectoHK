@@ -68,62 +68,19 @@
                  </div><!-- /navbar-collapse -->
         </nav>
         <div class="abt-what agileits all_pad wow fadeIn animated animated" data-wow-delay="0.1s" data-wow-duration="0s">
-    <div class="container">
-        <h3 class="title">CURSOS</h3>
-        <div class="col-md-4 ab-left">
-            <div class="port-7 effect-2">
-                    <div class="image-box">
-                        <img src="images/h2.jpg" alt="Image-2">
-                    </div>
-                    <div class="text-desc">
-                        <h4>Pedagogy</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-7 ab-right">
-            <h2>CURSOS DE DISEÑO Y DESARROLLO WEB</h2>
-            <p>El área de Desarrollo y Diseño Web está orientada a personas interesadas en diseñar y desarrollar aplicaciones Web o móviles, que sean ricas en interacción, funcionales, accesibles, de fácil comprensión y basadas en estándares Web. Más allá del desarrollo de sitios web, los egresados son capaces de producir todos los elementos necesarios de sitios y sistemas basados en tecnologías web o móviles, con énfasis en el diseño y la programación de una interfaz gráfica interactiva y fácil de usar.</p>
-        </div>
-        
-       <div class="col-md-4 ab-left">
-            <div class="port-7 effect-2">
-                    <div class="image-box">
-                        <img src="images/h1.jpg" alt="Image-2">
-                    </div>
-                    <div class="text-desc">
-                        <h4>Pedagogy</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-7 ab-right">
-            <h2>CURSO DE HTML5 </h2>
-            <p>Este curso capacita para un primer nivel de desarrollo de aplicaciones para terminales fijos y móviles (PC, teléfono móvil, tableta, ..) en HTML5, CSS3 y JavaScript5, con las que se diseñan la mayoría de las aplicaciones de cliente en Internet (Google, Twitter, Facebook, Amazon, …). Es un curso para principiantes, que describe con rigor y profundidad los elementos necesarios, ilustandolos con ejemplos sencillos, pero realistas. Todo ello con un enfoque multi-disciplinar que cubre la programación en JavaScript y el diseño de gráfico. Se ilustra también el uso de librerías tales como jQuery o jQuery UI, Bootstrap (diseños adaptable), gmaps (integración de Google Maps) o phonegap (creación de apps). </p>
-        </div>
-        <div class="clearfix"> </div>
-        <div class="col-md-4 ab-left">
-            <div class="port-7 effect-2">
-                    <div class="image-box">
-                        <img src="images/h3.jpg" alt="Image-2">
-                    </div>
-                    <div class="text-desc">
-                        <h4>Pedagogy</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-7 ab-right">
-            <h2>CURSOS DE NODEJS </h2>
-            <p>En este curso aprenderemos a crear aplicaciones en tiempo real en Node.js, desde cero y paso a paso, desarrollando un proyecto real que nos permitirá aplicar los conocimientos obtenidos. Node.js es una plataforma que nos permite utilizar JavaScript desde el lado del servidor. Solo necesitas tener conocimientos previos de este lenguaje. Si no los tienes, te recomendamos seguir nuestro curso de JavaScript dentro de la plataforma.</p>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
+             </div>
+          {{#each listCursos}}
+                {{> mostrarcurso}}
+          {{/each}}
+  
+     {{#each listEditarCursoFacili}}
+        {{nombre}}
+        {{detalle}}
+    {{/each}}
 
+   
     </div>
     </div>
-
 </template>
 <template name="mostrarcurso">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -134,32 +91,78 @@
                 <div class="info">
                     <h4 class="text-center">{{this.nombre}}</h4>
                     <div class="rectangle_hidden">
-                        <div class="container_curso"> 
-                            <p> {{this.detalle}}</p>
+                        <div class="container_curso" align="justify"> 
+                            <p style="padding: 10px;" > {{this.detalle}}</p>
                         </div>
                     </div>
                     {{#if currentUser}}
-                        {{#if isInRole 'facilitador' 'facilitador'}}
-                           <a data-target="modal1" class="btn">Modal</a>
-                             <button id="eliminarcurso" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button>
-                        {{else}}      
-                            <button type="button" class="btn btn-info" style="margin-top: 9px;">Tomar este curso</button>
+                        {{#if isInRole 'administrador' 'administrador' }}
+                                  <button id="editarcurso" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Editar Curso</button>
+                                  <button id="elimincursoadmi" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
+              
+                                  <!-- <button id="elimincursoadmi" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button> -->
+
+                        {{else}}
+                            {{#if isInRole 'facilitador' 'facilitador' }}
+                                    {{#if can_editar}}
+                                        
+                                        <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
+                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
+                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button>                                   
+                                    {{else}}
+                                        <div  class="alert alert-danger" style="height: 40px; padding:4px;">
+                                            <strong>Avertencia</strong> No tienes permiso para eliminar ni editar
+                                        </div>
+                                        {{/if}}
+                                    {{else}}
+                                {{#if isInRole 'estudiante' 'estudiante'}}
+                                                       
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Tomar Curso</button></a>
+                                {{else}}
+                                    <div  class="alert alert-danger" style="height: 40px; padding:0px;">
+                                    <strong>Avertencia</strong> Usted tiene que ser aprovado por el administrador.
+                                    </div>
+                                {{/if}}
+                            {{/if}}
                         {{/if}}
-                     {{/if}}
+                    {{/if}}
                 </div>
             </div>
     </div>
-    {{>modall}}
-
+    {{>mymodall}}
 </template>
-<template name="modall">
-    <div id="peexa-modal" class="modal">
-      <div class="modal-content">
-        <h4>Materialize Modal</h4>
-        <p>Your html elements. You can use any elements here as per your requirements.</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close btn-flat">Close This</a>
-    </div>
-</div>
+<template name="mymodall">
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">  
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button> 
+              <h4 class="modal-title" style="text-align: center;">Editar Cursos</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="POST">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombree" id="nombree" value="{{title}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Detalle</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="detallee" id="detallee" rows="5">{{text}}</textarea>
+                            <!--<input style="height:50px;" type="text" class="form-control" name="detallee" id="detallee"  value="{{text}}">-->
+                        </div>
+                    </div>
+                     <div class="form-group">  
+                        <div class="col-sm-offset-5">  
+                          <button type="button" id="guardarfaci" class="btn btn-default">Guardar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+  </div>
 </template>
