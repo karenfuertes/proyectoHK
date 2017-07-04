@@ -11,12 +11,12 @@ Template.mainpage.events({
   "click #logout" : function(){
     Meteor.logout();
   }
-})
+});
 Template.mainpage.helpers({
   facebook: function(){
     return BUTTONFACEBOOK.get();
   },
-  username : function(){
+  username: function(){
     return Accounts.user().username;
   }
 });
