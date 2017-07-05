@@ -30,9 +30,9 @@
                                         {{/if}}  
                                   
                                     {{else}}
-                                    {{#if isInRole 'falicitador' 'administrador'}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
                                         {{#if currentUser}}
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">{{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
@@ -67,6 +67,11 @@
                                                         
                  </div><!-- /navbar-collapse -->
         </nav>
+        <h1>CURSOS</h1>
+        <br>
+        <br>
+        <br>
+        <br>
        <div class="container">
         <div class="row">  
           {{#each listCursos}}
@@ -104,7 +109,7 @@
                                   <!-- <button id="elimincursoadmi" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button> -->
 
                         {{else}}
-                            {{#if isInRole 'facilitador' 'administrador' }}
+                            {{#if isInRole 'facilitador' 'facilitador' }}
                                     {{#if can_editar}}
                                         
                                         <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->

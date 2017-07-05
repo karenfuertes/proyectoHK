@@ -30,7 +30,7 @@
                                         {{/if}}  
                                   
                                     {{else}}
-                                    {{#if isInRole 'falicitador' 'administrador'}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
@@ -126,7 +126,9 @@
 		        <td>{{profile.lastname}}</td>	
 		       	<td>Activo</td>	
 		        <td>
-		           <button id="Deshabilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-align-right"> Dar baja</span></button>   
+		        	
+		           <button id="Deshabilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-align-right"> Dar baja</span></button>
+		             
 		        </td>
 		      
 		      </tr>	
@@ -134,7 +136,7 @@
 	      {{/each}}       
 	    </table>
 	  </div>
-	</div>
+	</div> 
 	  </div>
 	</div>
 </template>

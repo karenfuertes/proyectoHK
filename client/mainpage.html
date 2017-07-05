@@ -24,7 +24,7 @@
                                     <ul class="nav navbar-nav ">
                                     {{#if isInRole 'administrador' 'administrador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
                                  <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
@@ -33,11 +33,12 @@
                                         {{/if}}  
                                   
                                     {{else}}
-                                    {{#if isInRole 'falicitador' 'administrador'}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         {{else}}
@@ -48,7 +49,7 @@
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
                                         {{/if}}
