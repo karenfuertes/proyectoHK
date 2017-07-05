@@ -186,7 +186,7 @@ th {
   *,
   *:before,
   *:after {
-    color: #000 !important;
+    color: #fff !important;
     text-shadow: none !important;
     background: transparent !important;
     -webkit-box-shadow: none !important;
@@ -1184,7 +1184,7 @@ h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: #fff;
 }
 h1 small,
 h2 small,
