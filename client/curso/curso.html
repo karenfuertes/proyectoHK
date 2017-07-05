@@ -67,17 +67,18 @@
                                                         
                  </div><!-- /navbar-collapse -->
         </nav>
-        <div class="abt-what agileits all_pad wow fadeIn animated animated" data-wow-delay="0.1s" data-wow-duration="0s">
-             </div>
+       <div class="container">
+        <div class="row">  
           {{#each listCursos}}
-                {{> mostrarcurso}}
+                {{>mostrarcurso}}
           {{/each}}
-  
+        </div>
+    </div>
+    <br/>
      {{#each listEditarCursoFacili}}
         {{nombre}}
         {{detalle}}
     {{/each}}
-
    
     </div>
     </div>
@@ -115,14 +116,13 @@
                                         </div>
                                         {{/if}}
                                     {{else}}
-                                {{#if isInRole 'estudiante' 'estudiante'}}
-                                                       
+                              
                                     <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Tomar Curso</button></a>
-                                {{else}}
+                              
                                     <div  class="alert alert-danger" style="height: 40px; padding:0px;">
                                     <strong>Avertencia</strong> Usted tiene que ser aprovado por el administrador.
                                     </div>
-                                {{/if}}
+                              
                             {{/if}}
                         {{/if}}
                     {{/if}}
