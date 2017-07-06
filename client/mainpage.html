@@ -17,7 +17,6 @@
                                 </h1>
                                 
                             </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                                 
                                 <nav class="cl-effect-1">
@@ -25,11 +24,11 @@
                                     {{#if isInRole 'administrador' 'administrador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
-                                 <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">PERFIL</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/usuarios">PERFIL</a></li>
                                         {{/if}}  
                                   
                                     {{else}}
@@ -55,12 +54,8 @@
                                         {{/if}}
                                     {{else}}    
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
-                                      
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/soporte">CHAT</a></li>
-                                        
-                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/registerForm" id="login">REGISTRARSE</a></li>  
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li> 
                                         <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
                                         {{/if}}
                                         {{/if}}  

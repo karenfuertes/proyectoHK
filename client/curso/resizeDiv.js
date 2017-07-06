@@ -13,7 +13,7 @@ Template.mymodall.events({
 	"click #guardarfaci":function (e) {
 		var nomb;var deta;
 		var element = document.getElementById('nombree');
-		var element1 = document.getElementById('detallee');
+		var element1 = document.getElementById('detalle');
 		if (element != null && element1 != null) {
 		    nomb = element.value;deta = element1.value;
 		}

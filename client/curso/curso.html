@@ -21,10 +21,10 @@
                                     <ul class="nav navbar-nav ">
                                     {{#if isInRole 'administrador' 'administrador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">USUARIOS</a></li>
-                          r              <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">PERFIL</a></li>
                                         {{/if}}  
@@ -33,8 +33,9 @@
                                     {{#if isInRole 'facilitador' 'facilitador'}}
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         {{else}}
@@ -45,24 +46,20 @@
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
                                         {{#if currentUser}}
-                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
                                         <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
                                         <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
                                         {{/if}}
                                     {{else}}    
                                         <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
-                                      
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li>
-                                        <li><a class="scroll hvr-bounce-to-bottom" href="/soporte">CHAT</a></li>
-                                        
-                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/registerForm" id="login">REGISTRARSE</a></li>  
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li> 
                                         <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
                                         {{/if}}
                                         {{/if}}  
                                         {{/if}} 
                                      
-                                    </ul>
+                                    </ul>            
                                 </nav>
                                                         
                  </div><!-- /navbar-collapse -->
@@ -91,9 +88,6 @@
 <template name="mostrarcurso">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="box">
-                <div id="cursos" class="box-icon">
-                    <span><img class="foto" src="/image/php.jpg"></span>
-                </div>
                 <div class="info">
                     <h4 class="text-center">{{this.nombre}}</h4>
                     <div class="rectangle_hidden">
@@ -110,25 +104,17 @@
 
                         {{else}}
                             {{#if isInRole 'facilitador' 'facilitador' }}
-                                    {{#if can_editar}}
+                                   
                                         
                                         <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
                                         <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
                                         <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button>                                   
-                                    {{else}}
-                                        <div  class="alert alert-danger" style="height: 40px; padding:4px;">
-                                            <strong>Avertencia</strong> No tienes permiso para eliminar ni editar
-                                        </div>
-                                        {{/if}}
+                                 
                                     {{else}}
                               
-                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Tomar Curso</button></a>
-                              
-                                    <div  class="alert alert-danger" style="height: 40px; padding:0px;">
-                                    <strong>Avertencia</strong> Usted tiene que ser aprovado por el administrador.
-                                    </div>
-                              
-                            {{/if}}
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">CHAT</button></a>
+                                    {{/if}}
                         {{/if}}
                     {{/if}}
                 </div>

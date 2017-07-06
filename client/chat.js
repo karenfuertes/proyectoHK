@@ -6,3 +6,9 @@ Template.chat.events({
 		return false;
 	}
 });
+
+Template.chat.helpers({
+	chat: function(){
+		return CHAT.find();
+	}
+});
