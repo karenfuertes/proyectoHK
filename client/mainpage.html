@@ -1,0 +1,146 @@
+<template name="mainpage">
+<!-- header -->
+<div id="home" class="banner w3l">
+    <div class="container">
+        <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                             
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                    {{#if isInRole 'administrador' 'administrador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/usuarios">PERFIL</a></li>
+                                        {{/if}}  
+                                  
+                                    {{else}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}
+                                    {{#if isInRole 'estudiante'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}    
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li> 
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
+                                        {{/if}}
+                                        {{/if}}  
+                                        {{/if}} 
+                                     
+                                    </ul>            
+                                </nav>
+                 </div><!-- /navbar-collapse -->
+        </nav>
+        {{>footer}}
+    </div>
+</div>
+
+
+</template>
+<template name="footer">
+   <div class="banner-info wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s">
+        <script src="js/responsiveslides.min.js"></script>
+        <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager: false,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+                });
+            });
+            </script>
+            <div  class="callbacks_container">
+                <ul class="rslides" id="slider3">
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSOS DE DISEÑO Y DESARROLLO</h3>
+                            <p>Con el curso de Diseño Web explotarás al máximo toda tu creatividad usando softwares de producción web, programación y posicionamiento SEO.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSO DE HTML5</h3>
+                            <p>Este curso le permitirá al participante aplicar conceptos y estándares de diseño, composición, diagramación y recursos gráficos desarrollando un proyecto web. Incluye desde el diseño de layouts hasta el montaje de un sitio web navegable, haciendo uso de las mejores técnicas, tecnologías y recursos multimedia.  </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSOS DE NODEJS</h3>
+                            <p>Aprende a desarrollar aplicaciones escalables y en tiempo real llevando a JavaScript al servidor con Node.js </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+        <div class="more-button text-center">
+            <a href="#ban-bot" class="scroll"><img src="images/icon.png" alt=" "/></a>
+        </div>
+
+<div class="copy-right">
+    <div class="container">
+        <p>Realizado por Karen Fuertes| Humberto Choque <a href="http://git hub.com">Seminario</a></p>
+    </div>
+</div> 
+<!-- //map -->
+<!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+            };
+        */                              
+        $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+</template>

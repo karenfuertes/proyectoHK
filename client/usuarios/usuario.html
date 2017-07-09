@@ -1,0 +1,119 @@
+<template name="usuarios">
+<div id="home" class="banner1 w3l">
+    <div class="container">
+            <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                    {{#if isInRole 'administrador' 'administrador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/usuarios">PERFIL</a></li>
+                                        {{/if}}  
+                                  
+                                    {{else}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}
+                                    {{#if isInRole 'estudiante'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}    
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li> 
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
+                                        {{/if}}
+                                        {{/if}}  
+                                        {{/if}} 
+                                     
+                                    </ul>            
+                                </nav>
+                            </div>
+                    
+                        <div class="content-wrapper">
+                          <div class="container">
+                          <br>
+                          <br>
+                          <br>
+                              <h1 class="page-head-line">{{username}} </h1>
+                              </div>
+                            </div>
+
+                       <div class="panel-heading">
+                           DATOS DEL USUARIO
+                          </div>
+                        <div class="panel-body">
+                        <form>
+                        <div class="col-md-8">
+                          <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <form action="" method="POST">
+                              <div class="form-group">
+                              <label>Nombre de usuario :</label>{{username}}
+                              
+                            </div>
+                            <div class="form-group">
+                              <label>Apellidos :</label> {{lastname}}
+                             
+            
+                            </div>
+                            <div class="form-group">
+                              <label>Email :</label> {{email}}
+                             
+                            </div>
+                         
+                            <button type="button" class="btn btn-primary" id="guardar">Modificar</button>
+                                <button type="button" class="btn btn-primary" id="cancelar">Eliminar</button>
+        
+                            </form>
+                          </div>
+                          <div class="col -lg-8">
+                          </div>
+                        </div>  
+                      </div>
+                    <div class="checkbox">
+  
+                  </div>
+                </form>
+              </div>
+           
+    
+                    
+            </nav>
+    </div>
+      
+</div>
+</template>

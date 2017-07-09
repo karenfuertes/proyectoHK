@@ -1,0 +1,212 @@
+<!--<template name="tomarcurso">
+
+	{{>banner}}
+    {{>Template.dynamic template=mainmenu}}
+    	
+	{{#each clases}}
+	    <li>{{nombre}} {{clasesCurso.nombre}}</li>
+	{{/each}}
+	<br />
+	<div class="row">
+		 <div class="col-md-12" >
+			<div class="col-md-5" >
+			   
+				<div class="well" style="margin-left: 10px;">
+			        <div class="media">
+				      	<a class="pull-left" >
+				    	   <img class="media-object" src="/image/node.png" style="width: 100px; height: 30%;padding:2px;">
+					  	</a>
+					  	<div class="media-body">
+				    	    <h4 class="media-heading">Clase 1</h4>   
+				            <p>Facilitador : Victor Quisbert Mamani</p>
+				            <p>Aprender Python con Django</p>
+				            <ul class="list-inline list-unstyled">
+					  			<li><span><i class="glyphicon glyphicon-download-alt"></i> Archivos del curso</span></li>
+					            <li>|</li>
+					            <span><i class="glyphicon glyphicon-comment"></i> Chat</span>
+						    </ul>
+				       </div>
+				    </div>
+				</div>	
+				
+			</div>
+			<div class="col-md-7">
+				<div id="preguntas" class="well" style="padding: 10px;margin-right: 0px;">
+					 <div class="media">
+			      		 <form name="comment" class="comment-form form" style="height: 100px;">
+						    <div class="form-group">
+						        <div class="controls">
+						            <textarea name="body" id="body" class="form-control" style="height: 3	0px;" placeholder="Escribe tu Ṕregunta"></textarea>
+						        </div>
+						    </div>
+						    <div style="text-align: center;">
+						    <button type="submit" class="btn btn-primary" >Añadir Pregunta</button>
+						    </div>
+						</form>
+				    </div>
+			    </div>
+			   
+		    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            <div id="respuesta" >
+		                <div class="well">
+			                <div class="info">
+			                    <p>
+			                    	<img src="/image/css.png">
+			                    	<strong class="nombre">Yamil Pereira mendoza</strong>
+			                    	<br />
+			                    	<strong>	3 de mayo 	</strong>
+			                    </p>
+			                    <div class="comentario">
+			                    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta
+			                    	</p>
+			                    </div>
+			                    <div class="botones">
+			                    	<a href="#">0 Comentarios</a>
+			                   		<a href="#">22 Puntaje</a>	
+			                   		<a id="boton" href="#" class="upvote btn btn-default" >⬆</a>
+				                    
+			                    </div>
+			                    
+			                </div>
+		                </div>
+		            </div>
+		        </div>
+				 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            <div id="respuesta" >
+		                <div class="well">
+			                <div class="info">
+			                    <p>
+			                    	<img src="/image/css.png">
+			                    	<strong class="nombre">Yamil Pereira mendoza</strong>
+			                    	<br />
+			                    	<strong>	3 de mayo 	</strong>
+			                    </p>
+			                    <div class="comentario">
+			                    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta
+			                    	</p>
+			                    </div>
+			                    <div class="botones">
+			                    	<a href="#">0 Comentarios</a>
+			                   		<a href="#">22 Puntaje</a>	
+			                   		<a id="boton" href="#" class="upvote btn btn-default" >⬆</a>
+				                    
+			                    </div>
+			                    
+			                </div>
+		                </div>
+		            </div>
+		        </div>	
+			</div>
+		 </div>
+	 </div> 
+	
+
+	{{>footer}}
+</template>
+-->
+
+<template name="tomarcurso">
+
+	{{>banner}}
+    {{>Template.dynamic template=mainmenu}}
+
+	<br />
+	<div class="row">
+		 <div class="col-md-12" >
+			<div class="col-md-5" >
+			   <!-- esto es clases -->
+				{{#each clases}}
+					<div class="well" style="margin-left: 10px;">
+				        <div class="media">
+					      	<a class="pull-left" >
+					    	   <img class="media-object" src="/image/node.png" style="width: 100px; height: 30%;padding:2px;">
+						  	</a>
+						  	<div class="media-body">
+					    	    <h4 class="media-heading">{{nombre}}</h4>   
+					            <p>Facilitador : Victor Quisbert Mamani</p>
+					            <p>{{detalle}}</p>
+					            <ul class="list-inline list-unstyled">
+						  			<li><span><i class="glyphicon glyphicon-download-alt"></i> Archivos del curso</span></li>
+						            <li>|</li>
+						            <span><i class="glyphicon glyphicon-comment"></i> Chat</span>
+							    </ul>
+					       </div>
+					    </div>
+					</div>
+				{{/each}}
+
+				<!-- esto es clases -->
+			</div>
+			<div class="col-md-7">
+				<div id="preguntas" class="well" style="padding: 10px;margin-right: 0px;">
+					 <div class="media">
+			      		 <form name="comment" class="comment-form form" style="height: 100px;">
+						    <div class="form-group">
+						        <div class="controls">
+						            <textarea name="body" id="body" class="form-control" style="height: 3	0px;" placeholder="Escribe tu Ṕregunta"></textarea>
+						        </div>
+						    </div>
+						    <div style="text-align: center;">
+						    <button type="submit" class="btn btn-primary" >Añadir Pregunta</button>
+						    </div>
+						</form>
+				    </div>
+			    </div>
+			   
+		    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            <div id="respuesta" >
+		                <div class="well">
+			                <div class="info">
+			                    <p>
+			                    	<img src="/image/css.png">
+			                    	<strong class="nombre">Yamil Pereira mendoza</strong>
+			                    	<br />
+			                    	<strong>	3 de mayo 	</strong>
+			                    </p>
+			                    <div class="comentario">
+			                    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta
+			                    	</p>
+			                    </div>
+			                    <div class="botones">
+			                    	<a href="#">0 Comentarios</a>
+			                   		<a href="#">22 Puntaje</a>	
+			                   		<a id="boton" href="#" class="upvote btn btn-default" >⬆</a>
+				                    
+			                    </div>
+			                    
+			                </div>
+		                </div>
+		            </div>
+		        </div>
+				 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            <div id="respuesta" >
+		                <div class="well">
+			                <div class="info">
+			                    <p>
+			                    	<img src="/image/css.png">
+			                    	<strong class="nombre">Yamil Pereira mendoza</strong>
+			                    	<br />
+			                    	<strong>	3 de mayo 	</strong>
+			                    </p>
+			                    <div class="comentario">
+			                    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta
+			                    	</p>
+			                    </div>
+			                    <div class="botones">
+			                    	<a href="#">0 Comentarios</a>
+			                   		<a href="#">22 Puntaje</a>	
+			                   		<a id="boton" href="#" class="upvote btn btn-default" >⬆</a>
+				                    
+			                    </div>
+			                    
+			                </div>
+		                </div>
+		            </div>
+		        </div>	
+			</div>
+		 </div>
+	 </div> 
+	
+
+	{{>footer}}
+</template>

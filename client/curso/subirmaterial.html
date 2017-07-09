@@ -1,0 +1,43 @@
+<template name="subirmaterial">
+
+	<link type="text/html" rel="stylesheet" href="../subirmaterial.css">
+
+	<br /><br />
+	
+	<div class="container" style="width: 60%;">
+		<div class="cards" style="width: 100%; height: 500px;">
+			<h2 style="text-align: center;">Material Para Curso {{subirmaterial.nombre}}</h2>
+			<form method="POST" class="col-md-9 go-right">
+		   		<div class="form-group">
+	              	<label class="col-md-3 control-label" for="email">Nombre</label>
+	              	<div class="col-md-9">
+	                	<input type="text" name="nombre" autocomplete="off" placeholder="Nombre Material" class="form-control">
+	             	</div>
+	            </div>
+	            <br /><br />
+	            <div class="form-group">
+	              	<label class="col-md-3 control-label" for="email">Descripcion</label>
+	              	<div class="col-md-9">
+	                	<input type = "text" name = "detalles" autocomplete="off" class="form-control"  placeholder="Descripcion">
+	             	</div>
+	            </div>
+	              <br /> <br /> 
+	             <div class="form-group">
+	              	<label class="col-md-3 control-label" for="email">Subir Archivo</label>
+	              	<div class="col-md-9">
+	                	 <input id="input-6" name="input6[]" type="file" multiple class="file-loading">
+	             	</div>
+	            </div>
+	              <br /> <br /> 
+	          	<div style="text-align: center;">
+	            	<button type="submit" class="btn btn-primary btn-lg"><strong>Guardar</strong></button> 
+	            </div>	    
+		   </form>
+	   </div>
+	</div>
+
+</template>
+<template name="temario">
+	{{>banner}}
+    {{>Template.dynamic template=mainmenu}}
+</template>

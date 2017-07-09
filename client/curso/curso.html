@@ -1,0 +1,159 @@
+<template name="curso">
+<div id="home" class="banner w3l">
+    <div class="container">
+        <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                    {{#if isInRole 'administrador' 'administrador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">PERFIL</a></li>
+                                        {{/if}}  
+                                  
+                                    {{else}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}
+                                    {{#if isInRole 'estudiante'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}    
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li> 
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
+                                        {{/if}}
+                                        {{/if}}  
+                                        {{/if}} 
+                                     
+                                    </ul>            
+                                </nav>
+                                                        
+                 </div><!-- /navbar-collapse -->
+        </nav>
+        <h1>CURSOS</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+       <div class="container">
+        <div class="row">  
+          {{#each listCursos}}
+                {{>mostrarcurso}}
+          {{/each}}
+        </div>
+    </div>
+    <br/>
+     {{#each listEditarCursoFacili}}
+        {{nombre}}
+        {{detalle}}
+    {{/each}}
+   
+    </div>
+    </div>
+</template>
+<template name="mostrarcurso">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box">
+                <div class="info">
+                    <h4 class="text-center">{{this.nombre}}</h4>
+                    <div class="rectangle_hidden">
+                        <div class="container_curso" align="justify"> 
+                            <p style="padding: 10px;" > {{this.detalle}}</p>
+                        </div>
+                    </div>
+                    {{#if currentUser}}
+                        {{#if isInRole 'administrador' 'administrador' }}
+                                  <button id="editarcurso" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Editar Curso</button>
+                                  <button id="elimincursoadmi" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
+              
+                                  <!-- <button id="elimincursoadmi" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button> -->
+
+                        {{else}}
+                            {{#if isInRole 'facilitador' 'facilitador' }}
+                                   
+                                        
+                                        <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
+                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
+                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button>                                   
+                                 
+                                    {{else}}
+                              
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">CHAT</button></a>
+                                    {{/if}}
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+    </div>
+    {{>mymodall}}
+</template>
+<template name="mymodall">
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">  
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button> 
+              <h4 class="modal-title" style="text-align: center;">Editar Cursos</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="POST">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombree" id="nombree" value="{{title}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Detalle</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="detallee" id="detallee" rows="5">{{text}}</textarea>
+                            <!--<input style="height:50px;" type="text" class="form-control" name="detallee" id="detallee"  value="{{text}}">-->
+                        </div>
+                    </div>
+                     <div class="form-group">  
+                        <div class="col-sm-offset-5">  
+                          <button type="button" id="guardarfaci" class="btn btn-default">Guardar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+  </div>
+</template>

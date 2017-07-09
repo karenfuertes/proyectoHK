@@ -1,0 +1,152 @@
+<template name="contactos">
+<div id="home" class="banner w3l">
+    <div class="container">
+        <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                             
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                
+                                <nav class="cl-effect-1">
+                                    <ul class="nav navbar-nav ">
+                                    {{#if isInRole 'administrador' 'administrador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/sistema_baneo">USUARIOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Administrador :{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">PERFIL</a></li>
+                                        {{/if}}  
+                                  
+                                    {{else}}
+                                    {{#if isInRole 'facilitador' 'facilitador'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/crearcurso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/sistema_baneo">USUARIOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Facilitador : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}
+                                    {{#if isInRole 'estudiante'}}
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/curso">CURSOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios">Estudiante : {{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">PERFIL</a></li>  
+                                        {{/if}}
+                                    {{else}}    
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/cursos">CURSOS</a></li>                               
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/contactos">CONTACTOS</a></li> 
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="/loginForm" id="login">INICIAR SESION</a></li>
+                                        {{/if}}
+                                        {{/if}}  
+                                        {{/if}} 
+                                     
+                                    </ul>            
+                                </nav>
+   
+                 </div><!-- /navbar-collapse -->
+        </nav>
+        <div id="team" class="team-content all_pad w3agile">
+
+            
+    <div class="container">
+        <h3 class="title">DOCENTES</h3>
+        <div class="t-content-gds">
+            <div class="col-md-4 t-cont-gds wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+                <div class="team-img">
+                    <img class="img-responsive" src="images/team1.jpg" alt=" "/>
+                    <div class="team-text">
+                        <h4>Federica</h4>
+                        <p>DISEÑO Y DESARROLLO WEB</p>
+                        <ul>
+                            <li><a class="tw1" href="#"></a></li>
+                            <li><a class="tw2" href="#"></a></li>
+                            <li><a class="tw3" href="#"></a></li>
+                            <li><a class="tw4" href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 t-cont-gds wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+                <div class="team-img">
+                    <img class="img-responsive" src="images/team2.jpg" alt=" "/>
+                    <div class="team-text">
+                        <h4>Thomas</h4>
+                        <p>HTML5</p>
+                        <ul>
+                            <li><a class="tw1" href="#"></a></li>
+                            <li><a class="tw2" href="#"></a></li>
+                            <li><a class="tw3" href="#"></a></li>
+                            <li><a class="tw4" href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 t-cont-gds wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+                <div class="team-img">
+                    <img class="img-responsive" src="images/team3.jpg" alt=" "/>
+                    <div class="team-text">
+                        <h4>Albert</h4>
+                        <p>NODEJS</p>
+                        <ul>
+                            <li><a class="tw1" href="#"></a></li>
+                            <li><a class="tw2" href="#"></a></li>
+                            <li><a class="tw3" href="#"></a></li>
+                            <li><a class="tw4" href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div id="about" class="about all_pad agile">
+    <div class="container">
+        <h3 class="title">ACERCA DE</h3>
+        <p class="para">DISEÑO PAGINAS HTML5 CSS3( CERTIFICADO DE FORMA EXCLUSIVA POR EL INSTITUTO DE FORMACION PROFESIONAL) .</p>
+        <div class="abt-grids wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+            <div class="col-md-3 abt-grd text-center">
+                <img src="images/icon1.png" alt=" "/>
+                <h4>CURSOS DE DISEÑO Y DESARROLLO</h4>
+            </div>
+            <div class="col-md-3 abt-grd text-center">
+                <img src="images/icon2.png" alt=" "/>
+                <h4>CURSOS HTML5</h4>
+            </div>
+            <div class="col-md-3 abt-grd text-center">
+                <img src="images/icon3.png" alt=" "/>
+                <h4>CURSOS NODE JS</h4>
+            </div>
+            <div class="col-md-3 abt-grd text-center">
+                <img src="images/icon4.png" alt=" "/>
+                <h4>OTROS</h4>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+</template>

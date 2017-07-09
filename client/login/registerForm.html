@@ -1,0 +1,95 @@
+<template name="registerForm">
+
+<div id="home" class="banner1 w3l">
+    <div class="container">
+            <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header logo">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <h1>
+                                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                                </h1>
+                                
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                                <nav class="cl-effect-1">
+                                 
+                                    <ul class="nav navbar-nav ">
+                                        <li><a class="scroll hvr-bounce-to-bottom active" href="/">INICIO</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="curso">CURSOS</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom" href="/contactos">CONTACTOS</a></li>
+                                        {{#if currentUser}}
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/usuarios" id="logout">{{username}}</a></li>
+                                        <li><a class="scroll hvr-bounce-to-bottom " href="/" id="logout">CERRAR SESION</a></li>
+                                        {{else}}
+                                        <li><a  class="scroll hvr-bounce-to-bottom " href="loginForm" id="login">INICIAR SESION</a></li>  
+                                        {{/if}}
+                                    </ul>
+                                </nav>
+                            </div>
+                    
+                        <div class="content-wrapper">
+                          <div class="container">
+                          <br>
+                          <br>
+                          <br>
+                              <h1 class="page-head-line">Formulario </h1>
+                              </div>
+                            </div>
+
+                       <div class="panel-heading">
+                           DATOS DEL USUARIO
+                          </div>
+                        <div class="panel-body">
+                        <form>
+                        <div class="col-md-8">
+                          <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <form action="" method="POST">
+                            <div class="form-group">
+                              <label>Nombre de usuario</label>
+                              <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                              <label>Apellidos</label>
+                              <input type="text" class="form-control" name="lastname" placeholder="lastname">
+            
+                            </div>
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input type="text" class="form-control" name="email" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                              <label>Password</label>
+                              <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+          
+                            </form>
+                          </div>
+                          <div class="col -lg-8">
+                          </div>
+                        </div>  
+                      </div>
+                    <div class="checkbox">
+  
+                  </div>
+                </form>
+              </div>
+           
+    
+                    
+            </nav>
+    </div>
+      
+</div>
+    <!-- MENU SECTION END-->
+    <!-- CONTENT-WRAPPER SECTION END-->
+</template>
