@@ -1,0 +1,130 @@
+<template name="mainnav">
+
+    {{#if currentUser}}
+             {{#if  isInRole 'admin' 'admin'}} 
+                {{>mainadmi}}
+             {{else}}
+                {{#if isInRole 'facilitador' 'facilitador'}}
+                   {{>mainfaci}}
+                {{else}}
+                    {{#if isInRole 'estudiante' 'estudiante'}}
+                       {{>mainestu}}
+                    {{else}}
+                        {{>mainus}}
+                   {{/if}}
+                 {{/if}}
+             {{/if}}     
+          {{else}}  
+
+<div class="container">
+    <nav class="navbar navbar-default  wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+           <div class="navbar-header logo">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1>
+                    <a class="navbar-brand" href="index.html">CURSOS DE DISEÑO DE PAGINAS WEB</a>
+                </h1>
+                                
+            </div>
+            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                <nav class="cl-effect-1">
+                    <ul class="nav navbar-nav ">
+                            <li><a class="scroll hvr-bounce-to-bottom active" href="/"><strong>INICIO</strong></a></li>>
+                            <li><a class="scroll hvr-bounce-to-bottom active" href="/cursos"><strong>CURSOS</strong></a></li>
+                            <li><a  class="scroll hvr-bounce-to-bottom active" href="/contactos"><strong>ACERCA DE</strong></a></li>
+                            <li><a class="scroll hvr-bounce-to-bottom active " href="/loginForm"><strong>INICIAR SESION</strong></a></li>
+                    </ul>
+                </nav>
+            </div>
+    </nav>
+</div>
+
+    {{/if}} 
+
+
+
+</template>
+
+<template name="mainpage">
+<div id="home" class="banner w3l">
+      {{>Template.dynamic template=mainmenu}}
+    {{>footer}}  
+</div>
+</template>
+<template name="footer">
+   <div class="banner-info wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s">
+        <script src="js/responsiveslides.min.js"></script>
+        <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager: false,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+                });
+            });
+            </script>
+            <div  class="callbacks_container">
+                <ul class="rslides" id="slider3">
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSOS DE DISEÑO Y DESARROLLO</h3>
+                            <p>El área de Desarrollo y Diseño Web está orientada a personas interesadas en diseñar y desarrollar aplicaciones Web o móviles, que sean ricas en interacción, funcionales, accesibles, de fácil comprensión y basadas en estándares Web. Más allá del desarrollo de sitios web, los egresados son capaces de producir todos los elementos necesarios de sitios y sistemas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSO DE HTML5</h3>
+                            <p>Este curso capacita para un primer nivel de desarrollo de aplicaciones para terminales fijos y móviles (PC, teléfono móvil, tableta, ..) en HTML5, CSS3 y JavaScript5, con las que se diseñan la mayoría de las aplicaciones de cliente en Internet (Google, Twitter, Facebook, Amazon, …). Es un curso para principiantes, que describe con rigor y profundidad los elementos necesarios.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>CURSOS DE NODEJS</h3>
+                            <p>En este curso aprenderemos a crear aplicaciones en tiempo real en Node.js, desde cero y paso a paso, desarrollando un proyecto real que nos permitirá aplicar los conocimientos obtenidos. Node.js es una plataforma que nos permite utilizar JavaScript desde el lado del servidor. Solo necesitas tener conocimientos previos de este lenguaje. Si no los tienes, te recomendamos seguir nuestro curso de JavaScript dentro de la plataforma.  </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+        <div class="more-button text-center">
+
+        </div>
+
+<div class="copy-right">
+    <div class="container">
+        <p>Realizado por Karen Fuertes| Humberto Choque || Seminario</p>
+    </div>
+</div> 
+<!-- //map -->
+<!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+            };
+        */                              
+        $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+</template>

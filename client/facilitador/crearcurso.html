@@ -1,0 +1,63 @@
+<template name="crearcurso">
+          <div id="home" class="banner w3l"> 
+    {{>Template.dynamic template=mainmenu}}
+<br>
+<br>
+<br>
+<br>
+<br>
+    <table width="100%">
+  <tr>
+
+        <td width="45%" valign="top">   
+        <div class="col-md-9" border=1><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="10%">
+        <form  class="contact_form" action="#" id="contact_form" runat="server">
+        <div>
+            <ul>
+                <li>
+                    <h2>Introduzca curso</h2>
+                    <span class="required_notification">* Datos requeridos</span>
+                </li>
+                <li>
+                    <label for="name">Nombre del curso:</label>
+                    <input type="text" placeholder="Nombre" name="nombre" required />
+                </li>
+                <li>
+                    <label for="message">Detalle:</label>
+                    <textarea  cols="40" rows="6" name="detalle" required></textarea>
+                </li>
+                <li>
+                    <label >Fecha de inicio</label>
+                    <input id="inicio" type="date" name="inicio">
+                </li>
+                <li>
+                    <label >Fecha de Conclusion</label>
+                    <input type="date" name="fin" id="ejemplo_email_3">
+                </li>
+                <li>
+                    <input id="input-6" name="input6[]" type="file" multiple class="file-loading">
+                </li>
+                <li>
+                    <button class="btn waves-effect waves-light" type="submit">Crear curso</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+      </td>
+<td width="45%">
+
+        </td>
+    </tr>
+</table><br><br>
+</div>
+</template>
+

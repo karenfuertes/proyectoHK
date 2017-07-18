@@ -1,0 +1,97 @@
+<template name="registerForm">
+<div id="home" class="banner w3l">
+    {{>Template.dynamic template=mainmenu}}
+                    
+    <table width="100%">
+    <tr>
+
+        <td width="25%" valign="top">   
+        <div class="col-md-9" border=1><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="65%">
+        <br>
+        <br><br>
+
+           <form  action="" method="POST" role="form">
+           <h2><strong>Formulario</strong></h2>
+     <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> Username </span>
+          <input type="text" class="form-control"  name="username" placeholder="Username"  autocomplete="off">
+      </div>
+      <br />
+      <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> Password </span>
+          <input type="password" class="form-control"  name="password" placeholder="Password" required autocomplete="off">
+      </div>
+      <br />
+      <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> Email </span>
+          <input type="email" class="form-control"  name="email" placeholder="Email" required autocomplete="off">
+      </div>
+      <br />
+      <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> Nombre </span>
+          <input type="text" class="form-control"  name="nombre" placeholder="Nombre" required autocomplete="off">
+      </div>
+       <br />
+       <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> Apellido </span>
+          <input type="text" class="form-control"  name="apellido" placeholder="Apellido" required autocomplete="off">
+      </div>
+      <br />
+       <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> Sexo </span>
+          <select name="sexo" class="form-control">
+     
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+       <br />
+       <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i> Ejercer </span>
+          <select name="ejercer" class="form-control">
+          <option value="Estudiante">Estudiante</option>
+          <option value="Facilitador">Facilitador</option>
+        </select>
+      </div> <br /> 
+       <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i> Carrera </span>
+          <select name="carrera" class="form-control">
+          <option value="Ingeneria de Sistemas">Ingeneria de Sistemas</option>
+          <option value="Ingeneria Informatica">Ingeneria Informatica</option>
+          <option value="Experto Frontend">Experto Frontend</option>
+              <option value="Experto Backend">Experto Backend</option>
+              <option value="Diseñador Grafico">Diseñador Grafico</option>
+              <option value="Administracion de Base de Datos">Administracion de Base de Datos</option>
+        </select>
+      </div>
+        <br />
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+          <button type="submit" id="registr" class="btn btn-primary btn-block">Crear Cuenta</button>
+      </div> 
+    
+  </form>
+
+      </td>
+<td width="10%">
+
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+</div>
+
+    <!-- MENU SECTION END-->
+    <!-- CONTENT-WRAPPER SECTION END-->
+</template>

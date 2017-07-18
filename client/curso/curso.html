@@ -1,0 +1,106 @@
+<template name="curso">
+<div id="home" class="banner w3l">
+  {{>Template.dynamic template=mainmenu}}
+<br>
+<br>
+<br>
+<br>
+    <div class="container">
+        <div class="wall text-center">
+          {{#each listCursos}}
+                {{> mostrarcurso}}
+          {{/each}}
+        </div>
+    </div>
+    <br/>
+     {{#each listEditarCursoFacili}}
+        {{nombre}}
+        {{detalle}}
+    {{/each}}
+</div>
+</template>
+<template name="mostrarcurso">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box">
+                <div id="cursos" class="box-icon">
+                    <span><img class="foto" src="/images/icon3.png"></span>
+                </div>
+                <br>
+                <div class="info">
+                    <h4 class="text-center">{{this.nombre}}</h4>
+                    <div class="rectangle_hidden">
+                        <div class="container_curso" align="justify"> 
+                            <p style="padding: 10px;" > {{this.detalle}}</p>
+                        </div>
+                    </div>
+                    {{#if currentUser}}
+                        {{#if isInRole 'admin' 'admin' }}
+                                  <button id="editarcurso" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Editar Curso</button>
+                                  <button id="elimincursoadmi" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
+              
+                                  <!-- <button id="elimincursoadmi" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button> -->
+
+                        {{else}}
+                            {{#if isInRole 'facilitador' 'facilitador' }}
+                                    {{#if can_editar}}
+                                        
+                                        <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
+                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
+                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button>                                   
+                                    {{else}}
+                                        <div  class="alert alert-danger" style="height: 40px; padding:4px;">
+                                            <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
+                                        </div>
+                                        {{/if}}
+                                    {{else}}
+                                {{#if isInRole 'estudiante' 'estudiante'}}
+                                                       
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Tomar Curso</button></a>
+                                {{else}}
+                                    <div  class="alert alert-danger" style="height: 40px; padding:0px;">
+                                    <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+    </div>
+    {{>mymodall}}
+</template>
+<template name="mymodall">
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">  
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button> 
+              <h4 class="modal-title" style="text-align: center;">Editar Cursos</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="POST">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombree" id="nombree" value="{{title}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Detalle</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="detallee" id="detallee" rows="5">{{text}}</textarea>
+                            <!--<input style="height:50px;" type="text" class="form-control" name="detallee" id="detallee"  value="{{text}}">-->
+                        </div>
+                    </div>
+                     <div class="form-group">  
+                        <div class="col-sm-offset-5">  
+                          <button type="button" id="guardarfaci" class="btn btn-default">Guardar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+  </div>
+</template>

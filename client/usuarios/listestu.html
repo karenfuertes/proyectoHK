@@ -1,0 +1,53 @@
+<template name="listestu">
+<div id="home" class="banner w3l">
+    {{>Template.dynamic template=mainmenu}}
+    <br>
+    <br><br><br>
+    {{#if isInRole 'admin' 'admin'}}
+            <h1  style="text-align: center;"><strong>LISTA DE ESTUDIANTES</strong></h1>
+            <br>
+            <br>
+            <br>
+        {{else}}
+            <div style="text-align: center;">
+                <h1>Formadores y expertos de JsonFree</h1>
+                <p>Estamos continuamente buscando nuevos formadores y expertos para ampliar nuestro equipo. Si quieres ponerte en contacto con nosotros, envíanos por favor un email.</p>
+            </div>
+    {{/if}}
+    <div id="listfaci" class="container">	    
+		{{#each listfacilitadores}}
+            {{> mostrarestu}}
+        {{/each}}
+     </div>
+     </div>
+</template>
+<template name="mostrarestu">
+<form>
+    <div class="wall text-center">
+        <div class="inset">
+            <div id="img-card" class="col-xs-12 col-sm-12">
+                <img src="/images/icon2.png">
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="card-content">
+                <div>
+                   <p style="font-size:15px;paddpx"> <strong>Nombre: {{profile.nombre}} {{profile.apellido}}</strong></p>
+                </div>
+                <br>
+                <div class="">
+                   <strong>Educacion: {{profile.carrera}} </strong>
+                </div>
+            </div>
+            {{#if isInRole 'admin' 'admin'}}
+                <div class="card-read-more">
+                    <a class="btn btn-link btn-block" href="# ">
+                    Editar
+                    </a>
+                </div>
+            {{/if}} 
+        </div>
+    </div>
+    </form>
+ </template>

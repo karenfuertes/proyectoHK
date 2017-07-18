@@ -1,0 +1,68 @@
+<template name="perfil">
+<div id="home" class="banner w3l">
+	{{>Template.dynamic template=mainmenu}}
+
+    <table width="100%">
+    <tr>
+        <td width="30%" valign="top">   
+        <div class="col-md-9" border=1><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="30%">
+    <div>
+<br>
+                                        <br><br>
+                                        <br>
+                            <form>
+  <h1>Datos Personales</h1>
+  <div class="inset">
+  <p align="center"><img align="left" class="fb-image-lg" src="/images/icon2.png" alt="Profile image example"/>
+                {{#if image}}
+                    <div class="img-perfil" align="center">
+                        <figure>
+                            <img src="{{imagen.link}}" alt="profile" class="img-responsive img-centrar" name="regimage" id="{{imageuser}}">
+                        </figure>
+                    </div>
+                {{/if}}</p>
+                <br>
+                <br>
+                <br>
+                <br>
+  <p>
+
+
+
+                                                        <label><strong>Nombre :</strong>   {{nombre}}</label>
+                                                        <label><strong>Apellido :</strong>  {{apellido}} </label>
+                                                        <label><strong>Contribuidor :</strong>  {{ejercer}} </label>
+                                                        <label><strong>Sexo :</strong>  {{sexo}}</label>
+                                                        <label><strong>Email :</strong>  {{email}} </label>
+                                                        <label><strong>Carrera : </strong> {{carrera}}</label>
+
+  </p>
+  <br>
+  <br>
+    <p class="p-container">
+    <a href="/editperfil"><h4>Editar</h4></a>
+  </p>
+  </div>
+
+
+</form>
+    </div>
+<br>
+</td>
+<td width="35%">
+
+        </td>
+    </tr>
+</table>
+ 
+    </div>
+</template>

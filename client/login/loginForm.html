@@ -1,0 +1,57 @@
+<template name="loginForm">
+<div id="home" class="banner w3l">
+{{>Template.dynamic template=mainmenu}}
+                           
+
+    <table width="100%">
+    <tr>
+        <td width="30%" valign="top">   
+        <div class="col-md-9" border=1><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="30%">
+    <div>
+<br>
+                                        <br><br>
+                                        <br>
+                            <form>
+  <h1>INGRESE SU CUENTA</h1>
+  <div class="inset">
+  <p>
+    <label for="email">CORREO ELECTRONICO</label>
+    <input type="text" class="form-control" name="email" placeholder="Email"/>
+  </p>
+  <p>
+    <label for="password">CONTRASEÑA</label>
+    <input type="password" class="form-control" name="password" placeholder="Password" />
+  </p>
+  <button class="btn btn-success" type="submit" href="/">Ingresar</button>
+  <p class="p-container">
+    <span>NO TIENES CUENTA?</span>
+    <a href="/registerForm"><h4>Ingresar ->_Aqui_</h4></a>
+  </p>
+  <p>
+      <span>or cuenta Facebook</span>
+<fb:login-button scope="public_profile,email" onlogin="checkLoggin();"></fb:login-button>
+  </p>
+  </div>
+
+
+</form>
+    </div>
+<br>
+</td>
+<td width="35%">
+
+        </td>
+    </tr>
+</table>
+</div>
+</template>
+

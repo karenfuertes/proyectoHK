@@ -1,0 +1,57 @@
+<template name="tomarcurso">
+<div id="home" class="banner w3l">
+    {{>Template.dynamic template=mainmenu}}
+    <br>
+    <br><br><br>
+  <table width="100%">
+    <tr>
+    		<td width="10%">
+
+
+	 </td>
+        <td width="20%" valign="top">   
+
+       
+<h1>COMENTARIOS</h1>
+        </td>
+        <td width="30%">
+
+	<br />
+			      		 <form>
+			      		 	<div class="form-group">
+			      		 		<label for="pregunta">INgresa tu pregunta</label>
+			      		 		<input type="text" placeholder="ingrese su pregunta..." name="pregunta">
+			      		 		<input type="submit" value="Preguntar" class="btn btn-xs btn-success">
+			      		 	</div>
+			      		 </form>
+			      		 {{#each preguntas}}
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								{{autorPreguntas.username}}
+							</div>
+							<div class="panel-body">
+								{{texto}}
+							</div>
+							<div class="panel-footer">
+								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
+								<div id="demo" class="collapse">
+									<form>
+										<input type="text" name="respuesta">
+										<input type="submit" value="Responder">
+									</form>
+							  	</div>
+							</div>
+						</div>
+						{{/each}}
+						</td>
+		<td width="10%">
+
+   
+
+	 </td>
+    </tr>
+</table>
+
+	 </div>
+	
+</template>

@@ -1,0 +1,84 @@
+<template name="editPerfil">
+<div id="home" class="banner w3l">
+  {{>Template.dynamic template=mainmenu}}
+  <br>
+  <br>
+  <br>
+
+
+    <table width="100%">
+    <tr>
+        <td width="30%" valign="top">   
+        <div class="col-md-9" border=1><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="30%">
+    <div class="app-principal">
+    <h1>--DATOS PERSONALES</h1>
+    <br><br><br>
+          <form class="form-horizontal" role="form">
+            <label> </label>
+            <label> </label>
+            <label> </label>
+                   <div class="form-group">
+                    
+                      <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="username" class="form-control" id="inputEmail3" value="{{username}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" name="password" class="form-control" id="inputEmail3" placeholder="Cambiar password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="nombre" class="form-control" id="inputEmail3" value="{{nombre}}">
+                      </div>
+                    </div>
+                     <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label">Apellido</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="apellido" class="form-control" id="inputEmail3" value="{{apellido}}">
+                      </div>
+                    </div>
+                   
+                     
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" name="email" class="form-control" id="inputPassword3" value="{{email}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="ejemplo_email_3" class="col-lg-2 control-label">Imagen</label>
+                    <div class="col-lg-10">
+                     <input id="input-6" name="input6[]" type="file" multiple class="file-loading">
+                    </div>
+                  </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-5">
+                        
+                      <a href="/perfil"><button type="submit" class="btn btn-default">Guardar Cambios</button></a>
+                      </div>
+                  </div>
+      
+          </form>       
+    </div>
+    </td>
+<td width="35%">
+
+        </td>
+    </tr>
+</table>
+    </div>
+</template>
