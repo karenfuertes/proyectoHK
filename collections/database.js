@@ -86,6 +86,7 @@ var clase=new SimpleSchema({
 });
 Clases.attachSchema(clase);
 
+
 var cursoss = new SimpleSchema({
 	nombre: {
 		type:String
@@ -101,6 +102,9 @@ var cursoss = new SimpleSchema({
 	},
 	userId: {
 		type:String
+	},
+	imagen:{
+		type: String
 	}
     
 });

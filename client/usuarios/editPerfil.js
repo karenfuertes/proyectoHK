@@ -34,7 +34,7 @@ Template.editPerfil.events({
 	        });
 	        auxiliar=upload.config.fileId;
 	     }else{
-	        var sacar=Meteor.users.findOne({_id:Accounts.user()._id}).profile.imgID;
+	        var sacar=Meteor.users.findOne({_id:Accounts.user()._id}).profile.image;
 	        auxiliar=sacar;
 	     }	   
 	    obj ={
@@ -47,6 +47,7 @@ Template.editPerfil.events({
 	    }
 	    id=Accounts.user()._id;
 	    Meteor.call("updateperfil",id,obj);
+	    FlowRouter.go('/perfil/');
 	    /*$('#editPerfil').on('shown.bs.modal', function (event) {
 	    if (closeEditModal) {
 	        $('#editPerfil').modal('hide');

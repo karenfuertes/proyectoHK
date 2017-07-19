@@ -10,8 +10,6 @@ Template.crearcurso.events({
 		var fechaactual = new Date();
 		var  actual= moment(fechaactual).format("YYYY.MM.DD");
 
-		// > mayor
-		// < menor
 		if(inscribir<=actual){
 			alert("Las Fechas que pusiste estan pasados intente de nuevo");
 			return false;
@@ -22,13 +20,21 @@ Template.crearcurso.events({
 				return false;
 			}
 			else{
+
 				e.preventDefault();
-				obj ={
-					nombre:e.target.nombre.value,
-					detalle:e.target.detalle.value,
-					inicio:e.target.inicio.value,
-					fin:e.target.fin.value,	
-					userId : Accounts.user()._id,
+				var upload = Images.insert({
+            file: e.target.imagen.files[0],
+            streams: 'dynamic',
+            chunkSize: 'dynamic',
+          });
+
+        obj ={
+					'nombre':e.target.nombre.value,
+					'detalle':e.target.detalle.value,
+					'inicio':e.target.inicio.value,
+					'fin':e.target.fin.value,	
+					'userId' : Accounts.user()._id,
+          'imagen':upload.config.fileId
 					
 				}
 				Meteor.call("addCourse",obj);
