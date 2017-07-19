@@ -46,7 +46,8 @@
                                         
                                         <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
                                         <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
-                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button>                                   
+                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button> 
+                                        <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Ver</button></a>                                  
                                     {{else}}
                                         <div  class="alert alert-danger" style="height: 40px; padding:4px;">
                                             <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
@@ -55,7 +56,8 @@
                                     {{else}}
                                 {{#if isInRole 'estudiante' 'estudiante'}}
                                                        
-                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 20%;margin-top: 10px;">Tomar Curso</button></a>
                                 {{else}}
                                     <div  class="alert alert-danger" style="height: 40px; padding:0px;">
                                     <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion

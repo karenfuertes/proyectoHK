@@ -13,6 +13,7 @@
 
        
 <h1>COMENTARIOS</h1>
+<h2 style="text-align: center;">Material Para Curso {{subirmaterial.nombre}}</h2>
         </td>
         <td width="30%">
 
@@ -35,23 +36,38 @@
 							<div class="panel-footer">
 								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
 								<div id="demo" class="collapse">
-									<form>
-										<input type="text" name="respuesta">
-										<input type="submit" value="Responder">
-									</form>
+									{{>respuesta}}
 							  	</div>
 							</div>
 						</div>
 						{{/each}}
+						{{>chat}}
 						</td>
-		<td width="10%">
-
-   
-
+		<td width="10%"> 
 	 </td>
     </tr>
 </table>
 
 	 </div>
+	
+</template>
+<template name="respuesta">
+						<form>
+										<input type="text" name="respuesta">
+										<input type="submit" value="Responder">
+						</form>
+						{{#each respuestas}}
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								{{autorRespuestas.username}}
+							</div>
+							<div class="panel-body">
+								{{texto}}
+							</div>
+							<div class="panel-footer">
+								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
+							</div>
+						</div>
+						{{/each}}
 	
 </template>

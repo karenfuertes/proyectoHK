@@ -145,12 +145,13 @@ Meteor.startup(() => {
 			]
 		}
 	});
+
   
 });
 
 
 Meteor.startup(() => {
-	Meteor.publishComposite("getMSN",function(idUs,idMe){
+	Meteor.publishComposite("chat",function(idUs,idMe){
 		return {
 			find(){
 				return CHAT.find(

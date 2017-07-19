@@ -7,12 +7,7 @@ Template.subirmaterial.helpers({
 		var id=FlowRouter.getParam('id');
 		console.log(id);
 		return Cursos.findOne({_id:id});
-		
-			
-	//	return Cursos.findOne({_id:id});
-	
-		//return this.userId == Meteor.userId();
-		//return Cursos.find();
+
 		
 	},
 });

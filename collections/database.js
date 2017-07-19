@@ -31,7 +31,7 @@ GALERIA.attachSchema(galeriaSchema);
 
 
 //ANSWER
-Chat = new Mongo.Collection("chat");
+
 Answer = new Mongo.Collection("answer");
 Questions = new Mongo.Collection("questions");
 PERFIL = new Mongo.Collection("perfil");
@@ -53,20 +53,10 @@ var tomar=new SimpleSchema({
 });
 Tomarcurso.attachSchema(tomar);
 
-Cursos = new Mongo.Collection('cursos'/*,{
-	transform:function(item){
-		if(Accounts.user() != null && item.userId == Accounts.user()._id){
-			item.can_editar = true;
-		}else {
-			item.can_editar = false;
-		}
-		return item;
-	}
-}*/
-);
+Cursos = new Mongo.Collection('cursos');
 
 
-Clases = new Mongo.Collection("clases");
+Clases = new Mongo.Collection('clases');
 var clase=new SimpleSchema({
 	nombre:{
 		type:String
@@ -91,8 +81,6 @@ var clase=new SimpleSchema({
 	}
 });
 Clases.attachSchema(clase);
-//Users = new Mongo.Collection("users");*/
-
 
 var cursoss = new SimpleSchema({
 	nombre: {
@@ -109,19 +97,7 @@ var cursoss = new SimpleSchema({
 	},
 	userId: {
 		type:String
-	}/*,
-	clasesId: { 
-		type: [String]	
 	}
-	,
-	
-	clasesId : { 
-		type : Object , 
-		autoValue :function(){
-			return "";
-		}
-	}*/
-	//clases:[Clases]
     
 });
 Cursos.attachSchema(cursoss); 
@@ -143,3 +119,21 @@ var preguntasSchema = new SimpleSchema({
 	}
 });
 
+
+
+Chat = new Mongo.Collection("chat");
+
+var chatSchema = new SimpleSchema({
+	texto: {
+		type: String
+	},
+	idCurso: {
+		type: String
+	},
+	idUsuario:{
+		type: String
+	},
+	votos: {
+		type: Number
+	}
+});
