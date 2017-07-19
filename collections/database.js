@@ -1,3 +1,6 @@
+import {Mongo} from "meteor/mongo";
+
+
 Videos = new FilesCollection({
   collectionName: 'videos',
   allowClientCode: false, // Disallow remove files from g
@@ -9,12 +12,14 @@ Images = new FilesCollection({
   allowClientCode: false, // Disallow remove files from g
   storagePath:'/home/beto/Escritorio/files/',
 });
+
 GALERIA = new Mongo.Collection('galeria',{
     transform:function(item){
         _.extend(item,{imagen:Images.findOne({_id:item.idImagen})});
         return item;
     }
 });
+
 var galeriaSchema = new SimpleSchema({
     idUser: {
         type : String,
@@ -27,8 +32,6 @@ var galeriaSchema = new SimpleSchema({
     }
 });
 GALERIA.attachSchema(galeriaSchema);
-
-
 
 //ANSWER
 
@@ -51,6 +54,7 @@ var tomar=new SimpleSchema({
 		type:String
 	}
 });
+
 Tomarcurso.attachSchema(tomar);
 
 Cursos = new Mongo.Collection('cursos');
@@ -120,20 +124,19 @@ var preguntasSchema = new SimpleSchema({
 });
 
 
-
-Chat = new Mongo.Collection("chat");
-
-var chatSchema = new SimpleSchema({
-	texto: {
-		type: String
-	},
-	idCurso: {
-		type: String
-	},
-	idUsuario:{
-		type: String
-	},
-	votos: {
-		type: Number
+MESSAGES = new Mongo.Collection("messages",{
+	transform:function(row){
+		//row.username="Ditmaros";
+		var user = Meteor.users.findOne({_id:row.user})
+		if(!!user.profile)
+		{
+			row.username = user.profile.name; 
+		}
+		if(!!user.emails)
+		{
+			row.username = user.emails[0].address;
+		}
+		return row;
 	}
 });
+

@@ -15,6 +15,10 @@ Template.perfil.onRendered(function(){
 });
 
 Template.perfil.helpers({
+  imagenes:function(){
+    var re=Meteor.users.findOne({_id:Accounts.user()._id}).profile.image;
+    return Images.findOne({_id:re});
+  },
 	sexo:function(){
     return Accounts.user().profile.sexo;
   },
@@ -76,6 +80,9 @@ Template.perfil.events({
     $("#myModal .close").click()
   }
 });
+
+Meteor.subscribe('imagenes');
+
 
 /*Template.modalperfil.onRendered(function(){
     $(document).ready(function(){

@@ -8,11 +8,9 @@
         <div class="col-md-9" border=1><br>
                 <div class="list-group">
                   
-
                 </div>
         
-                
-            </div>
+                </div>
         </td>
         <td width="30%">
     <div>
@@ -22,11 +20,14 @@
                             <form>
   <h1>Datos Personales</h1>
   <div class="inset">
-  <p align="center"><img align="left" class="fb-image-lg" src="/images/icon2.png" alt="Profile image example"/>
+  <p align="center">
+  
+    <img  style="width: 50%;height: 100px;" align="center" class="fb-image-lg" src="{{imagenes.link}}" alt="Profile image example"/>
+  
                 {{#if image}}
                     <div class="img-perfil" align="center">
                         <figure>
-                            <img src="{{imagen.link}}" alt="profile" class="img-responsive img-centrar" name="regimage" id="{{imageuser}}">
+                            <img src="{{imagenes.link}}" alt="profile" class="img-responsive img-centrar" name="regimage" id="{{imageuser}}">
                         </figure>
                     </div>
                 {{/if}}</p>
@@ -36,14 +37,11 @@
                 <br>
   <p>
 
-
-
-                                                        <label><strong>Nombre :</strong>   {{nombre}}</label>
-                                                        <label><strong>Apellido :</strong>  {{apellido}} </label>
-                                                        <label><strong>Contribuidor :</strong>  {{ejercer}} </label>
-                                                        <label><strong>Sexo :</strong>  {{sexo}}</label>
-                                                        <label><strong>Email :</strong>  {{email}} </label>
-                                                        <label><strong>Carrera : </strong> {{carrera}}</label>
+            <label><strong>Nombre :</strong>   {{nombre}}</label>
+            <label><strong>Apellido :</strong>  {{apellido}} </label>
+            <label><strong>Sexo :</strong>  {{sexo}}</label>
+            <label><strong>Email :</strong>  {{email}} </label>
+            <label><strong>Carrera : </strong> {{carrera}}</label>
 
   </p>
   <br>

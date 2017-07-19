@@ -43,7 +43,8 @@ Template.valid = new ReactiveVar(false);
 				"sexo":e.target.sexo.value,
 				"ejercer":e.target.ejercer.value,
 				"carrera":e.target.carrera.value,
-				"estado":false,		
+				"estado":false,	
+				"image":'null'	
 			} // Meteor.users.update({_id:'dHufK34dY82EzfH8k'},{$set:{'profile.sexo':'Masculino','profile.ejercer':'Administrador','profile.carrera':'Experto Backend','profile.estado':true}});
 		}
 

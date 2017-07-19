@@ -20,8 +20,24 @@
 </div>
 </template>
 <template name="mostrarcurso">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="box">
+
+    <table width="100%">
+    <tr>
+        <td width="30%" valign="top">   
+        <div class="col-md-9" border=1 ><br>
+                <div class="list-group">
+                  
+
+                </div>
+        
+                
+            </div>
+        </td>
+        <td width="30%">
+        <br><br>
+<form>
+    <div class="contact_form">
+            <div class="inset">
                 <div id="cursos" class="box-icon">
                     <span><img class="foto" src="/images/icon3.png"></span>
                 </div>
@@ -29,25 +45,21 @@
                 <div class="info">
                     <h4 class="text-center">{{this.nombre}}</h4>
                     <div class="rectangle_hidden">
-                        <div class="container_curso" align="justify"> 
+                        <div class="container_curso" align="center"> 
                             <p style="padding: 10px;" > {{this.detalle}}</p>
                         </div>
                     </div>
                     {{#if currentUser}}
                         {{#if isInRole 'admin' 'admin' }}
-                                  <button id="editarcurso" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Editar Curso</button>
-                                  <button id="elimincursoadmi" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
-              
-                                  <!-- <button id="elimincursoadmi" type="button" class="btn btn-info" style="width: 170px; height: 30px; padding-bottom:3px;margin-top: 10px;">Eliminar Curso</button> -->
+                                  <button id="elimincursoadmi" type="button" onclick="alert('Desea elominar este curso')" class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
 
                         {{else}}
                             {{#if isInRole 'facilitador' 'facilitador' }}
                                     {{#if can_editar}}
-                                        
-                                        <!--<button type="button"  class="btn btn-primary" style="width: 30%;margin-top: 10px;">Eliminar Curso</button> -->
-                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;">Subir Material</button></a>
-                                        <button id="editFaci" type="button"  class="btn btn-primary" style="width: 35%;margin-top: 10px;" data-toggle="modal" data-target="#myModal">Editar Curso</button> 
-                                        <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 100%;margin-top: 10px;">Ver</button></a>                                  
+ 
+                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Subir Material</button></a>
+            
+                                        <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Preguntas</button></a>                                  
                                     {{else}}
                                         <div  class="alert alert-danger" style="height: 40px; padding:4px;">
                                             <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
@@ -57,7 +69,7 @@
                                 {{#if isInRole 'estudiante' 'estudiante'}}
                                                        
                                     <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Tomar Curso</button></a>
-                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 20%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 20%;margin-top: 10px;">chat</button></a>
                                 {{else}}
                                     <div  class="alert alert-danger" style="height: 40px; padding:0px;">
                                     <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
@@ -65,10 +77,18 @@
                                 {{/if}}
                             {{/if}}
                         {{/if}}
+
                     {{/if}}
                 </div>
             </div>
     </div>
+    </form>
+</td>
+<td width="35%">
+
+        </td>
+    </tr>
+</table>
     {{>mymodall}}
 </template>
 <template name="mymodall">

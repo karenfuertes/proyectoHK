@@ -1,21 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-	
-	/*Meteor.publishComposite('listaCursos', function(idCurso){
-		return {
-			find(){
-				return Cursos.find();
-			},
-			children: [
-				{
-					find(curso){
-						return Clases.find({cursId:idCurso});
-					}
-				}
-			]
-		}
-	});*/
 	Meteor.publishComposite('listaClases', function(id){
 		return {
 			find(){
@@ -30,29 +15,8 @@ Meteor.startup(() => {
 			]
 		}
 	});
-	/*Meteor.publishComposite('listaCursos', function(idCurso){
-		return {
-			find(){
-				return Cursos.find({_id:idCurso});
-			},
-			children: [
-				{
-					find(curso){
-						return Clases.find({cursId:idCurso});
-					}
-				}
-			]
-		}
-	});
-	*/
 	Meteor.methods({
-		/*"checkCourse" : function(obj) {
-			var l = Curso_User.find({iduser : obj.iduser,idcurso : obj.idcurso}).fetch();
-			if(l.length == 0){
-				return true;
-			}
-			return false;
-		},*/
+
 		"facicursos":function(id,msnObj){
 			Cursos.update({_id:id},{$set:{nombre:msnObj.nombre,detalle:msnObj.detalle}});
 			return true;
@@ -66,25 +30,7 @@ Meteor.startup(() => {
 			return true;
 		},
 		"addSesiones": function(msnObj){
-			//Clases.update({_id:idP},{$set:{like:cont}});
 			Clases.insert(msnObj);
-			///var ids=Clases.find({'cursId':ida},{sort:{ fecha: -1 }, limit: 1}).fetch();
-		    //	console.log(ids);
-			// primero insertamos
-			// ida es el ID del del users
-			// id  es el ID del curso
-			// msnObj es el ID  
-			// var es que el que optiene los el array de clasesId
-			
-			//var ids=Clases.findOne({'cursId':ida},{sort:{ fecha: -1 }, limit: 1}).fetch();
-			
-			//var ids=Clases.find({'clasesId':ida}).fetch();
-			//Cursos.update({_id:id},{$push:{clasesId:ids}});
-			// label: "Tags",
-			//Cursos.update({_id:id},{clasesId:[{ids}]});
-			
-			//Cursos.update({_id:"xnYwCnXbninoxE8ms"}, {$set: {clasesId:p}});
-
 			return true;
 		},
 		"addUsuario":function(id){
@@ -108,10 +54,10 @@ Meteor.startup(() => {
 
 			Meteor.users.update({_id:id},{$set:{
 				'username':obj.username,
-				//'services.password.bcrypt':obj.password,
 				'emails.0.address':obj.email,
 				'profile.nombre':obj.nombre,
-			    'profile.apellido':obj.apellido
+			    'profile.apellido':obj.apellido,
+			    'profile.image':obj.image
 			}});
 		},
 		'insertarPregunta': function(pregunta){
@@ -120,6 +66,11 @@ Meteor.startup(() => {
 
 
 	});
+	Meteor.publish('imagenes', function () {
+	    return Images.find().cursor;
+	  });
+
+
 	Meteor.publish('listCurso', function() {
 	  return Cursos.find();
 	});
@@ -151,32 +102,7 @@ Meteor.startup(() => {
 
 
 Meteor.startup(() => {
-	Meteor.publishComposite("chat",function(idUs,idMe){
-		return {
-			find(){
-				return CHAT.find(
-					{$or:
-						[
-							{idSource:idMe,idDestination:idUs},
-							{idSource:idUs,idDestination:idMe}
-							]});
-			},
-			children:[
-				{
-					find(chat){
-						return Meteor.users.find({_id:chat.idSource});
-					}
-					
-				},
-				{
-					find(chat){
-						return Meteor.users.find({_id:chat.idDestination});
-						
-					}
-				}
-			]
-		}
-	});
+
 	Meteor.publishComposite("getConnections",{
 		find(){
 			return CONNECT.find({stade:true});

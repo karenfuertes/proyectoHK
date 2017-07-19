@@ -1,0 +1,37 @@
+<template name="chat">
+<div id="home" class="banner w3l">
+
+	<b>
+		Mensajes
+	</b>
+	<div class="mainChatStyles">
+		<ul class="list-group">
+		<form>
+			      	<div class="form-group">
+			      		 <label for="pregunta">Ingresaaaaaaaaaaa tu pregunta</label>
+			      		 <input type="text" placeholder="ingrese su pregunta..." name="pregunta">
+			      		 <input type="submit" value="Preguntar" class="btn btn-xs btn-success">
+			      	</div>
+			    </form>
+			     {{#each preguntas}}
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						{{autorPreguntas.username}}
+					</div>
+					<div class="panel-body">
+						{{texto}}
+					</div>
+					<div class="panel-footer">
+						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
+						<div id="demo" class="collapse">
+							{{>respuesta}}
+						</div>
+					</div>
+				</div>
+				{{/each}}
+	</ul>	
+	</div>
+
+	</div>
+</template>
+
