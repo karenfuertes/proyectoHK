@@ -79,7 +79,7 @@ Template.tomarcurso.events({
 		$('#'+this._id).slideToggle('slow', function() {});
 		return false;		
 	},
-	'submit form': function(e){
+	"submit form": function(e){
 		e.preventDefault();
 		var target = e.target;
 		var pregunta = {
@@ -88,8 +88,11 @@ Template.tomarcurso.events({
 			idUsuario: Meteor.userId(),
 			votos: 0
 		};
+		//console.log(pregunta);	
+			
 		Meteor.call('insertarPregunta', pregunta);
 		target.pregunta.value = '';
+		return false;
 	}
 });
 
@@ -114,9 +117,7 @@ Template.chateando.helpers({
 		return Accounts.user().profile.nombre;
 	},
 	imagenes() {
-		//Respuesta.findOne({userId:idUsuario}).texto
 		var va=Meteor.users.findOne({_id:this.userId}).profile.image;
-	
    		return Images.findOne(va);
 	},
 	yo:function(){
@@ -129,11 +130,9 @@ Template.chateando.helpers({
 		return FlowRouter.subsReady("chats");
 	},
     listachat: function () {
-    	//var va=Clases.findOne({_id:this.cursId})._id;
 		return Chat.find({claseId:this._id}).fetch();
 	},
 	userschat :  function () {
-		//console.log(Meteor.users.findOne({_id:this._id}));
 		return	Meteor.users.findOne({_id:this.userId});
 	}
 })
@@ -155,3 +154,19 @@ Template.chateando.events({
 		return false;
 	}
 });
+
+
+Template.tomarcurso.helpers({
+
+	readyPreff:function(){
+		return FlowRouter.subsReady("listarPreguntas");
+	},
+    preguntas: function () {
+		return	Preguntas.find().fetch().reverse();
+	},
+	userpregu :  function () {
+		//console.log(Meteor.users.findOne({_id:this._id}));
+		return	Meteor.users.findOne({_id:this.idUsuario});
+	}
+})
+
