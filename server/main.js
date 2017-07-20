@@ -1,6 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
+	Meteor.publishComposite("chat",function(id){
+    return {
+      find(){
+      	//console.log(Pregunta.find({cursId:id}).fetch());
+        return Chat.find({cursId:id});
+      },
+      children:[{
+          find(preg){
+          	//console.log(Meteor.users.find({_id:preg.userId}).fetch());
+            return Meteor.users.find({_id:preg.userId});
+          }          
+        }]
+    }});
+
 	Meteor.publishComposite('listaClases', function(id){
 		return {
 			find(){
@@ -16,7 +30,12 @@ Meteor.startup(() => {
 		}
 	});
 	Meteor.methods({
-
+		
+		"guadarchat": function(msnObj){
+			Chat.insert(msnObj);
+			return true;
+		},
+		
 		"facicursos":function(id,msnObj){
 			Cursos.update({_id:id},{$set:{nombre:msnObj.nombre,detalle:msnObj.detalle}});
 			return true;

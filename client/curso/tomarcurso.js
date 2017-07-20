@@ -1,6 +1,6 @@
 
 
-
+chat= new ReactiveVar();
 Template.tomarcurso.helpers({
 	tomarcurso:()=>{
 		var id=FlowRouter.getParam('id');	
@@ -73,6 +73,12 @@ Template.tomarcurso.helpers({
 })
 
 Template.tomarcurso.events({
+	"click #ABRIRCHAT":function(e) {
+		var idd = this._id;
+		chat.set(idd);
+		$('#'+this._id).slideToggle('slow', function() {});
+		return false;		
+	},
 	'submit form': function(e){
 		e.preventDefault();
 		var target = e.target;
@@ -99,5 +105,53 @@ Template.respuesta.events({
 		};
 		Meteor.call('insertarRespuesta', pregunta);
 		target.respuesta.value = '';
+	}
+});
+
+
+Template.chateando.helpers({
+	nombre:function(){
+		return Accounts.user().profile.nombre;
+	},
+	imagenes() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var va=Meteor.users.findOne({_id:this.userId}).profile.image;
+	
+   		return Images.findOne(va);
+	},
+	yo:function(){
+		if (Meteor.userId()==this.userId) {
+			return true;
+		}
+		return false;
+	},
+	readychat:function(){
+		return FlowRouter.subsReady("chats");
+	},
+    listachat: function () {
+    	//var va=Clases.findOne({_id:this.cursId})._id;
+		return Chat.find({claseId:this._id}).fetch();
+	},
+	userschat :  function () {
+		//console.log(Meteor.users.findOne({_id:this._id}));
+		return	Meteor.users.findOne({_id:this.userId});
+	}
+})
+
+
+Template.chateando.events({
+	'submit form': function (e) {
+		var pre=chat.get();
+	    var obj = {
+	    	claseId: pre,
+		  	userId : Accounts.user()._id,
+			mensaje : e.target.cha.value,
+			cursId : FlowRouter.getParam('id'),
+			estado : false
+		};
+		console.log(obj);
+		Meteor.call('guadarchat',obj);
+		e.target.cha.value="";
+		return false;
 	}
 });

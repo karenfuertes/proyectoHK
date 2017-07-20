@@ -1,12 +1,69 @@
-@charset "UTF-8";
-* {
-  box-sizing: border-box;
+.panel-default {
+    border-color: #ddd;
+    margin-left: -23px;
+    margin-right: -14px;
+    margin-bottom: 2px; 
 }
 
-body {
-  background: #B5B5B5;
+.msg_container_base{
+  background: #e5e5e5;
+  margin: 0;
+  padding: 0;  
+  overflow-x:hidden;
 }
 
+.top-bar {
+  background: #666;
+  color: white;
+  padding: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.msg_receive{
+    padding-left:0;
+    margin-left:0;
+}
+.msg_sent{
+    padding-bottom:20px !important;
+    margin-right:0;
+}
+.messages {
+  background: white;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width:100%;
+}
+.messages > p {
+    font-size: 13px;
+    margin: 0 0 0.2rem 0;
+  }
+.messages > time {
+    font-size: 11px;
+    color: #ccc;
+}
+.msg_container {
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+
+.base_sent {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.msg_sent > time{
+    float: right;
+}
+
+
+
+
+
+/**/
 .moviecard {
   font-family: 'Helvetica', sans-serif, 'Ariel';
   position: relative;
@@ -14,7 +71,7 @@ body {
   color: #555555;
   margin: 50px auto;
   width: 100%;
-  padding: 15px;
+  padding: 0px;
   -moz-box-shadow: -5px 5px 15px;
   -webkit-box-shadow: -5px 5px 15px;
   box-shadow: -5px 5px 15px;
@@ -29,11 +86,11 @@ body {
 }
 .moviecard .movie-title {
   font-size: 36px;
-  padding-bottom: 6px;
+  
   color: #333333;
 }
 .moviecard .movie-title .movie-year {
-  margin-left: 12px;
+  
   font-size: 16px;
 }
 .moviecard .movie-title a {
@@ -50,7 +107,7 @@ body {
   border-bottom: 1px solid #dbdbdb;
 }
 .moviecard .movie-details span {
-  padding: 0px 6px;
+  padding: 0px;
   border-right: 1px solid #dbdbdb;
 }
 .moviecard .movie-details span:last-child {
@@ -95,7 +152,7 @@ body {
 .moviecard .movie-trailer-btn {
   text-transform: uppercase;
   outline: none;
-  padding: 15px 50px;
+  
   position: relative;
   background: none;
   border: none;

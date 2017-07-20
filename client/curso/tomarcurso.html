@@ -1,3 +1,60 @@
+<template name="chateando">
+	<div class="" id="chat_window_1" style="margin-left:10px;">
+        <div class="col-xs-12 col-md-12">
+        	<div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - {{nombre}}</h3>
+                    </div>
+                    
+                </div>
+                <div class="panel-body msg_container_base">
+                    {{#if readychat}}
+                    	{{#each listachat}}
+                    		{{#if yo}}
+		                    <div class="row msg_container base_sent">
+		                        <div class="col-md-10 col-xs-10">
+		                            <div class="messages msg_sent">
+		                                <p>{{mensaje}}</p>
+		                                <time datetime="2009-11-13T20:00">{{userschat.profile.nombre}}</time>
+		                            </div>
+		                        </div>
+		                        <div class="col-md-2 col-xs-2 avatar">
+		                            <img id="logoo" src="{{imagenes.link}}" class=" img-responsive ">
+		                        </div>
+		                    </div>
+		                    {{else}}  
+		                    <div class="row msg_container base_sent">
+		                        <div class="col-md-2 col-xs-2 avatar">
+		                            <img id="logoo" src="{{imagenes.link}}" class=" img-responsive ">
+		                        </div>
+		                        <div class="col-md-10 col-xs-10 ">
+		                            <div class="messages msg_sent">
+		                                <p>{{mensaje}}</p>
+		                                <time datetime="2009-11-13T20:00">{{userschat.profile.nombre}}</time>
+		                            </div>
+		                        </div>
+		                        
+                    		</div>
+                    		{{/if}}
+                    	{{/each}}
+                    {{/if}}
+                </div>
+                <div class="panel-footer">
+                    <form>
+	                    <div class="input-group">
+
+	                        <input name="cha" id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Escriba un mensaje" />
+	                        <span class="input-group-btn">
+	                        <button type="submit" class="btn btn-primary btn-sm" id="btn-chat">Enviar</button>
+	                        </span>
+	                    </div>
+                    </form>
+                </div>
+    		</div>
+        </div>
+    </div>
+</template>
 <template name="tomarcurso">
 <div id="home" class="banner w3l">
     {{>Template.dynamic template=mainmenu}}
@@ -12,11 +69,18 @@
 
 								<div class="moviecard">
 								  <div id="movie-content">
-								    <div class="movie-details"><h3>{{nombre}}</h3></div>
-								    
-								    <div class="movie-castcrew"><span class="title">Cast</span></div>
-								    <div class="movie-synopsis">{{detalle}}</div>
-								    <button class="movie-trailer-btn play-trailer" type="button">play trailer</button>
+								  	<div style="padding: 10px;">
+									    <div class="movie-details"><h3>{{nombre}}</h3></div>					    
+									    <div class="">{{detalle}}</div>
+
+									    <div class="">
+									    	<a href="" id="ABRIRCHAT">Chat</a>
+									    </div>
+								    </div>
+								    <div id="{{_id}}" style="display: none;" class="CHATTTT">
+										{{>chateando}}
+
+								    </div>
 								  </div>
 								</div>
 							{{else}}

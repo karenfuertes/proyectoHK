@@ -144,3 +144,25 @@ MESSAGES = new Mongo.Collection("messages",{
 	}
 });
 
+
+
+Chat = new Mongo.Collection("chat");
+var mensajesSchema =new SimpleSchema({
+    claseId : {
+        type:String,
+    },
+    userId : {
+        type:String,
+    },
+    mensaje : {
+        type : String
+    },
+    cursId : {
+        type : String
+    },
+    estado : {
+    	type : Boolean
+    }
+});
+
+Chat.attachSchema(mensajesSchema);
