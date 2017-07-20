@@ -21,35 +21,14 @@
 </template>
 <template name="mostrarcurso">
     {{#each listCursos}}
-    <table width="100%">
-    <tr>
-        <td width="20%" valign="top">   
-        <div class="col-md-9" border=1 ><br>
-                <div class="list-group">
-                  
-
-                </div>
-        
-                
-            </div>
-        </td>
-        <td width="30%">
-        <br><br>
-<form>
-    <div class="contact_form">
-            <div class="inset">
-                <div id="cursos" class="box-icon">
-                    <span><img style="width: 50%;" class="foto" src="{{imagen.link}}"></span>
-                </div>
-                <br>
-                <div class="info">
-                    <h4 class="text-center">Nombre del curso : {{this.nombre}}</h4>
-                    <div class="rectangle_hidden">
-                        <div class="container_curso" align="center"> 
-                            <p style="padding: 10px;" > <strong> Descripcion : </strong>{{this.detalle}}</p>
-                        </div>
+        <div class="col-md-4 ab-left">
+            <div class="port-7 effect-2">
+                    <div class="image-box">
+                        <img alt="Image-2" src="{{imagen.link}}">
                     </div>
-                    {{#if currentUser}}
+                    <div class="text-desc">
+                        <h4>
+                            {{#if currentUser}}
                         {{#if isInRole 'admin' 'admin' }}
                                   <button id="elimincursoadmi" type="button" onclick="alert('Desea eliminar este curso')" class="btn btn-primary" style="width: 50%;margin-top: 10px;">Eliminar Curso</button>
 
@@ -57,18 +36,18 @@
                             {{#if isInRole 'facilitador' 'facilitador' }}
                                     {{#if can_editar}}
  
-                                        <a href="/subirmaterial/{{_id}}"><button id="subir" type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Subir Material</button></a>
+                                        <a href="/subirmaterial/{{_id}}">Subir Material</a>
             
-                                        <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Preguntas</button></a>                                  
+                                        <a href="/tomarcurso/{{_id}}">Preguntas</a>                                  
                                     {{else}}
-                                        <div  class="alert alert-danger" style="height: 40px; padding:4px;">
+                                        <div  class="alert alert-danger" style="width: 50px; padding:4px;">
                                             <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
                                         </div>
                                         {{/if}}
                                     {{else}}
                                 {{#if isInRole 'estudiante' 'estudiante'}}
                                                        
-                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 50%;margin-top: 10px;">Tomar Curso</button></a>
+                                    <a href="/tomarcurso/{{_id}}">Tomar Curso</a>
 
                       
                                 {{else}}
@@ -80,16 +59,31 @@
                         {{/if}}
 
                     {{/if}}
-                </div>
-            </div>
-    </div>
-    </form>
-</td>
-<td width="20%">
 
-        </td>
-    </tr>
-</table>
+
+                        </h4>
+                        <p>Seleccionar</p>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-7 ab-right">
+            <h2 class="text-center">Nombre del curso : {{this.nombre}}</h2>
+            <p style="padding: 10px;" > <strong> Descripcion : </strong>{{this.detalle}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+
+
 {{/each}}
     {{>mymodall}}
 </template>
