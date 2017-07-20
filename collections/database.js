@@ -128,6 +128,34 @@ var preguntasSchema = new SimpleSchema({
 });
 
 
+Respuesta = new Mongo.Collection('respuesta');
+
+var respuesta=new SimpleSchema({
+    
+    texto : {
+        type:String,
+    },
+    userId : {
+        type : String
+    },
+    pregId: {
+        type : String
+    },
+    cursId : {
+        type : String
+    },
+    fecha:{
+        type:Date,
+        autoValue: function(){
+            return new Date();
+        }
+    } 
+});
+
+
+
+
+
 MESSAGES = new Mongo.Collection("messages",{
 	transform:function(row){
 		//row.username="Ditmaros";

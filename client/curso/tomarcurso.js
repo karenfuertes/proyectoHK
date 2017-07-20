@@ -1,6 +1,8 @@
 
 
 chat= new ReactiveVar();
+
+resp= new ReactiveVar();
 Template.tomarcurso.helpers({
 	tomarcurso:()=>{
 		var id=FlowRouter.getParam('id');	
@@ -73,6 +75,13 @@ Template.tomarcurso.helpers({
 })
 
 Template.tomarcurso.events({
+	
+	"click #RESPUESTA":function(e) {
+		var idd = this._id;
+		resp.set(idd);
+		$('#'+this._id).slideToggle('slow', function() {});
+		return false;		
+	},
 	"click #ABRIRCHAT":function(e) {
 		var idd = this._id;
 		chat.set(idd);
@@ -100,13 +109,15 @@ Template.respuesta.events({
 	'submit form': function(e){
 		e.preventDefault();
 		var target = e.target;
+		var idpre=resp.get();
 		var respuesta = {
 			texto: target.respuesta.value,
-			idCurso: FlowRouter.getParam('id'),
-			idUsuario: Meteor.userId(),
-			votos: 0
+			userId: Meteor.userId(),
+			pregId:idpre,
+			cursId: FlowRouter.getParam('id')
 		};
-		Meteor.call('insertarRespuesta', pregunta);
+		//console.log(respuesta);
+		Meteor.call('insertarRespuesta', respuesta);
 		target.respuesta.value = '';
 	}
 });
@@ -170,3 +181,22 @@ Template.tomarcurso.helpers({
 	}
 })
 
+Template.tomarcurso.helpers({	
+
+	image() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var va=Meteor.users.findOne({_id:this.userId}).profile.image;
+		return Images.findOne(va);
+	},
+	
+	readyRes:function(){
+		return FlowRouter.subsReady("listaRespuestas");
+	},
+    lRespuesta: function () {
+		return	Respuesta.find({pregId:this._id}).fetch();
+	},
+	userres :  function () {
+		
+		return	Meteor.users.findOne({_id:this.userId});
+	},
+})

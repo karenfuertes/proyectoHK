@@ -111,10 +111,22 @@
 										{{texto}}
 									</div>
 									<div class="panel-footer">
-										<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
-										<div id="demo" class="collapse">
-											{{>respuesta}}
-										</div>
+										<button id="RESPUESTA" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
+									</div>
+									<div id="{{_id}}" class="respuesta" style="display: none;">
+										{{>respuesta}}
+										{{#if readyRes}}
+											{{#each lRespuesta}}
+												<div style="margin-left: -1px;margin-right: -1px;margin-bottom: 2px;" class="panel panel-default">
+													<div class="panel-heading">
+														{{userres.username}}
+													</div>
+													<div class="panel-body">
+														{{texto}}
+													</div>	
+												</div>
+											{{/each}}
+										{{/if}}
 									</div>
 								</div>
 								{{else}}
@@ -129,20 +141,9 @@
 <template name="respuesta">
 	<form>
 		<input type="text" name="respuesta">
-		<input type="submit" value="Responder">
+		<div style="text-align: center;">
+		<input  type="submit" value="Responder">
+		</div>
 	</form>
-	{{#each respuestas}}
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			{{autorRespuestas.username}}
-		</div>
-		<div class="panel-body">
-			{{texto}}
-		</div>
-		<div class="panel-footer">
-			<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Responder</button>
-		</div>
-	</div>
-	{{/each}}
-	
+	<br>
 </template>

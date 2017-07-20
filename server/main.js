@@ -1,6 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
+	Meteor.publishComposite("listaRespuestas",function(id){
+    return {
+      find(){
+      	//console.log(Pregunta.find({cursId:id}).fetch());
+        return Respuesta.find({cursId:id});
+      },
+      children:[{
+          find(preg){
+          	//console.log(Meteor.users.find({_id:preg.userId}).fetch());
+            return Meteor.users.find({_id:preg.userId});
+          }          
+        }]
+    }});
+
 	publishComposite('listarPreguntas', function(idCurso){
 		return {
 			find(){
@@ -46,7 +60,9 @@ Meteor.startup(() => {
 		}
 	});
 	Meteor.methods({
-		
+
+	
+
 		"guadarchat": function(msnObj){
 			Chat.insert(msnObj);
 			return true;
@@ -97,7 +113,11 @@ Meteor.startup(() => {
 		},
 		'insertarPregunta': function(pregunta){
 			Preguntas.insert(pregunta);
+		},
+		'insertarRespuesta': function(resp){
+			Respuesta.insert(resp);
 		}
+			
 
 
 	});
