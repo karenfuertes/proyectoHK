@@ -3,9 +3,9 @@ figure.snip0057 {
   position: relative;
   float: left;
   overflow: hidden;
-  margin: 10px 1%;
-  min-width: 380px;
-  max-width: 480px;
+  margin: 5px 3%;
+  min-width: 180px;
+  max-width: 280px;
   width: 100%;
   background: #ffffff;
   color: #000000;
@@ -1563,8 +1563,6 @@ label:hover ~ input[type=text],
 label:hover ~ input[type=password] {
   background:#27292c;
 }
-
-
 
 
 

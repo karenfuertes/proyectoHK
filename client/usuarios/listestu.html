@@ -14,19 +14,20 @@
                 <p>Estamos continuamente buscando nuevos formadores y expertos para ampliar nuestro equipo. Si quieres ponerte en contacto con nosotros, envíanos por favor un email.</p>
             </div>
     {{/if}}
-    <div id="listfaci" class="container">	    
-		{{#each listfacilitadores}}
-            {{> mostrarestu}}
-        {{/each}}
+    <div id="listestu" class="container">	    
+
+            {{>mostrarestu}}
+
      </div>
      </div>
 </template>
 <template name="mostrarestu">
+        {{#each listestudiantes}}
 <form>
-    <div class="wall text-center">
+ <!--   <div class="wall text-center">
         <div class="inset">
             <div id="img-card" class="col-xs-12 col-sm-12">
-                <img src="/images/icon2.png">
+                <img style="width: 50%;height: 150px;" src="{{imagen.link}}">
             </div>
             <br>
             <br>
@@ -42,6 +43,19 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
+
+        <figure class="snip0057 red">
+          <figcaption>
+            <h2> {{profile.nombre}}</h2>
+            <p>{{profile.carrera}}</p>
+            <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
+          </figcaption>
+          <div class="image"><img src="{{imagen.link}}" alt="sample4"/></div>
+          <div class="position">Illustrator</div>
+        </figure>
+
+        
     </form>
+      {{/each}}
  </template>

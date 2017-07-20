@@ -3,7 +3,7 @@ Template.registerForm.onRendered(function(){
 });
 Template.registerForm.events({
 	"submit form" :function(e){
-Template.valid = new ReactiveVar(false);
+		Template.valid = new ReactiveVar(false);
 		var usernameReg = /^[a-zA-Z]{3,}$/i
 		var passwordReg = /^[\w]{3,}$/
 		var emailReg = /^[a-zA-Z0-9]{1,}@\w{3,}[.][a-zA-Z]{2,3}$/
@@ -48,12 +48,13 @@ Template.valid = new ReactiveVar(false);
 			} // Meteor.users.update({_id:'dHufK34dY82EzfH8k'},{$set:{'profile.sexo':'Masculino','profile.ejercer':'Administrador','profile.carrera':'Experto Backend','profile.estado':true}});
 		}
 
-	Accounts.createUser(user,function(e){
+		Accounts.createUser(user,function(e){
 			if(e==undefined){
 				Meteor.loginWithPassword(user.username,user.password);
 			}
-			FlowRouter.go('/');
+			
 		});
+		FlowRouter.go('/');
 		return false;
 	}
 });

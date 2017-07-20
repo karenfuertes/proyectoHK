@@ -91,6 +91,7 @@ Template.loginForm.events({
 		Meteor.loginWithPassword(e.target.email.value,e.target.password.value);
     myTemplates.set("/");
 		$(".panelForm").css("opacity",0);
+    FlowRouter.go("/");
 		return false;
 	}
 });
