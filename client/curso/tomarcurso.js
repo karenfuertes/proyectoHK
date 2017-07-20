@@ -52,16 +52,13 @@ Template.tomarcurso.helpers({
 });
 
 Template.tomarcurso.helpers({	
-    /*videos(){
+    videos(){
 		return Videos.findOne(this.archivo);
 	},
-	imagess() {
-		var res=Cursos.findOne({_id:this.cursId}).imgId;
-		if (res==undefined) {
-			console.log("esta vacio");
-		}
+	imagenesss() {
+		var res=Cursos.findOne({_id:this.cursId}).imagen;
    		 return Images.findOne(res);
-	},*/
+	},
 	readyCu:function(){
 		return FlowRouter.subsReady("listaCursos");
 	},
@@ -75,19 +72,44 @@ Template.tomarcurso.helpers({
 })
 
 Template.tomarcurso.events({
-	
+	"click #ABRIRMATERIAL":function (e) {
+		if($('.VIDEOSSS').css('display')=='block')
+		{
+			$('#'+this._id+'video').slideToggle('slow', function() {});
+			$(".CHATTTT").css({"display": "none"});
+		}
+		else{
+			$('#'+this._id+'video').slideToggle('slow', function() {});
+			$(".CHATTTT").css({"display": "none"});
+		}
+		return false;
+		
+	},
+	"click #ABRIRCHAT":function(e) {
+		var idd = this._id;
+		chat.set(idd);
+		if($('.CHATTTT').css('display')=='none')
+		{
+			$('#'+this._id).slideToggle('slow', function() {});
+			$(".VIDEOSSS").css({"display": "none"});
+			console.log("entra");
+		}
+		else{
+			$('#'+this._id).slideToggle('slow', function() {});
+			$(".VIDEOSSS").css({"display": "none"});
+		}		
+	},
+
+
+
+
 	"click #RESPUESTA":function(e) {
 		var idd = this._id;
 		resp.set(idd);
 		$('#'+this._id).slideToggle('slow', function() {});
 		return false;		
 	},
-	"click #ABRIRCHAT":function(e) {
-		var idd = this._id;
-		chat.set(idd);
-		$('#'+this._id).slideToggle('slow', function() {});
-		return false;		
-	},
+	
 	"submit form": function(e){
 		e.preventDefault();
 		var target = e.target;
@@ -168,7 +190,11 @@ Template.chateando.events({
 
 
 Template.tomarcurso.helpers({
-
+	images() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var va=Meteor.users.findOne({_id:this.idUsuario}).profile.image;
+		return Images.findOne(va);
+	},
 	readyPreff:function(){
 		return FlowRouter.subsReady("listarPreguntas");
 	},
@@ -183,7 +209,7 @@ Template.tomarcurso.helpers({
 
 Template.tomarcurso.helpers({	
 
-	image() {
+	imagess() {
 		//Respuesta.findOne({userId:idUsuario}).texto
 		var va=Meteor.users.findOne({_id:this.userId}).profile.image;
 		return Images.findOne(va);
@@ -193,10 +219,13 @@ Template.tomarcurso.helpers({
 		return FlowRouter.subsReady("listaRespuestas");
 	},
     lRespuesta: function () {
-		return	Respuesta.find({pregId:this._id}).fetch();
+		return	Respuesta.find({pregId:this._id}).fetch().reverse();
 	},
 	userres :  function () {
 		
 		return	Meteor.users.findOne({_id:this.userId});
 	},
 })
+
+
+Meteor.subscribe('videos');

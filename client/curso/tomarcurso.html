@@ -70,14 +70,24 @@
 								<div class="moviecard">
 								  <div id="movie-content">
 								  	<div style="padding: 10px;">
-									    <div class="movie-details"><h3>{{nombre}}</h3></div>					    
+									    <div class="movie-details">
+									    	<img style="width: 10%;float: left;margin-right: 10px; " src="{{imagenesss.link}}">	
+									    <h3>{{nombre}}</h3>
+									    </div>					    
 									    <div class="">{{detalle}}</div>
 									    <div class="">
 									    	<a href="" id="ABRIRCHAT">Chat</a>
+									    	<a href="" id="ABRIRMATERIAL">Material</a>
 									    </div>
 								    </div>
 								    <div id="{{_id}}" style="display: none;" class="CHATTTT">
 										{{>chateando}}
+
+								    </div>
+								    <div id="{{_id}}video" class="VIDEOSSS" style="display: none;">
+								    	<video  controls style="width: 100%;">
+										   <source  src="{{videos.link}}" >
+										</video>
 
 								    </div>
 								  </div>
@@ -91,12 +101,16 @@
 
 						<!-- -->
 					</div>
-					<div class="col-md-7">
+
+					<div id="PREGUNATTOTAL" class="col-md-7" style="display: block;">
+
 						<form>
-					      	<div class="form-group">
+					      	<div class="form-group" style="padding: 5px;">
 					      		 <label for="pregunta">Ingresa tu pregunta</label>
 					      		 <input type="text" placeholder="ingrese su pregunta..." name="pregunta">
+					      		 <div style="text-align: center;">
 					      		 <input type="submit" value="Preguntar" class="btn btn-xs btn-success">
+					      		 </div>
 					      	</div>
 					    </form>
 
@@ -105,6 +119,7 @@
 
 								<div class="panel panel-default">
 									<div class="panel-heading">
+										<img style="width: 10%;" src="{{images.link}}">
 										{{userpregu.username}}
 									</div>
 									<div class="panel-body">
@@ -119,6 +134,7 @@
 											{{#each lRespuesta}}
 												<div style="margin-left: -1px;margin-right: -1px;margin-bottom: 2px;" class="panel panel-default">
 													<div class="panel-heading">
+														<img style="width: 10%;" src="{{imagess.link}}">
 														{{userres.username}}
 													</div>
 													<div class="panel-body">
