@@ -16,10 +16,16 @@ Template.subirmaterial.events({
   	var id=FlowRouter.getParam('id');
   	//var ida=Accounts.user()._id;
   	//console.log(id);
+  	var upload = Videos.insert({
+        file: event.target.imagen.files[0],
+        streams: 'dynamic',
+        chunkSize: 'dynamic',
+      });
+
 	var obj ={
 			nombre:event.target.nombre.value,
 			detalle:event.target.detalles.value,
-			archivo:'null',
+			archivo:upload.config.fileId,
 			chatId:'null',
 			cursId : id
 	}

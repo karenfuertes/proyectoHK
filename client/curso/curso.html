@@ -7,9 +7,9 @@
 <br>
     <div class="container">
         <div class="wall text-center">
-          {{#each listCursos}}
+          
                 {{> mostrarcurso}}
-          {{/each}}
+          
         </div>
     </div>
     <br/>
@@ -20,7 +20,7 @@
 </div>
 </template>
 <template name="mostrarcurso">
-
+    {{#each listCursos}}
     <table width="100%">
     <tr>
         <td width="30%" valign="top">   
@@ -39,7 +39,7 @@
     <div class="contact_form">
             <div class="inset">
                 <div id="cursos" class="box-icon">
-                    <span><img class="foto" src="/images/icon3.png"></span>
+                    <span><img style="width: 50%;" class="foto" src="{{imagen.link}}"></span>
                 </div>
                 <br>
                 <div class="info">
@@ -89,6 +89,7 @@
         </td>
     </tr>
 </table>
+{{/each}}
     {{>mymodall}}
 </template>
 <template name="mymodall">

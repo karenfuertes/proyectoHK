@@ -6,8 +6,10 @@ Template.mostrarcurso.onRendered(function(){
   
 });
 
-Template.curso.helpers({
-  
+Template.mostrarcurso.helpers({
+  imagen:function(){
+    return Images.findOne(this.imagen);
+  },
   listCursos: function(){
     
     return Cursos.find({},{
