@@ -1,14 +1,17 @@
 <template name="subirmaterial">
+<div id="home" class="banner w3l">
+    {{>Template.dynamic template=mainmenu}}
 
 	<link type="text/html" rel="stylesheet" href="../subirmaterial.css">
 
-	<br /><br />
+	<br /><br /><br><br>
 	
 	<div class="container" style="width: 60%;">
 		<div class="cards" style="width: 100%; height: 500px;">
 			<h2 style="text-align: center;">Material Para Curso {{subirmaterial.nombre}}</h2>
+			<br><br>
 			<form method="POST" class="col-md-9 go-right">
-		   		<div class="form-group">
+		   		<div class="form-group" style="padding: 18px;">
 	              	<label class="col-md-3 control-label" for="email">Nombre</label>
 	              	<div class="col-md-9">
 	                	<input type="text" name="nombre" autocomplete="off" placeholder="Nombre Material" class="form-control">
@@ -36,7 +39,7 @@
 		   </form>
 	   </div>
 	</div>
-
+</div>
 </template>
 <template name="temario">
     {{>Template.dynamic template=mainmenu}}

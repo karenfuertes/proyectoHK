@@ -23,7 +23,7 @@
     {{#each listCursos}}
     <table width="100%">
     <tr>
-        <td width="30%" valign="top">   
+        <td width="20%" valign="top">   
         <div class="col-md-9" border=1 ><br>
                 <div class="list-group">
                   
@@ -43,15 +43,15 @@
                 </div>
                 <br>
                 <div class="info">
-                    <h4 class="text-center">{{this.nombre}}</h4>
+                    <h4 class="text-center">Nombre del curso : {{this.nombre}}</h4>
                     <div class="rectangle_hidden">
                         <div class="container_curso" align="center"> 
-                            <p style="padding: 10px;" > {{this.detalle}}</p>
+                            <p style="padding: 10px;" > <strong> Descripcion : </strong>{{this.detalle}}</p>
                         </div>
                     </div>
                     {{#if currentUser}}
                         {{#if isInRole 'admin' 'admin' }}
-                                  <button id="elimincursoadmi" type="button" onclick="alert('Desea elominar este curso')" class="btn btn-primary" style="width: 40%;margin-top: 10px;">Eliminar Curso</button>
+                                  <button id="elimincursoadmi" type="button" onclick="alert('Desea eliminar este curso')" class="btn btn-primary" style="width: 50%;margin-top: 10px;">Eliminar Curso</button>
 
                         {{else}}
                             {{#if isInRole 'facilitador' 'facilitador' }}
@@ -68,8 +68,9 @@
                                     {{else}}
                                 {{#if isInRole 'estudiante' 'estudiante'}}
                                                        
-                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 40%;margin-top: 10px;">Tomar Curso</button></a>
-                                    <a href="/chat/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 20%;margin-top: 10px;">chat</button></a>
+                                    <a href="/tomarcurso/{{_id}}"><button type="button"  class="btn btn-primary" style="width: 50%;margin-top: 10px;">Tomar Curso</button></a>
+
+                      
                                 {{else}}
                                     <div  class="alert alert-danger" style="height: 40px; padding:0px;">
                                     <strong>Avertencia</strong> No tiene permiso para ejecutar esta accion
@@ -84,7 +85,7 @@
     </div>
     </form>
 </td>
-<td width="35%">
+<td width="20%">
 
         </td>
     </tr>
